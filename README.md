@@ -27,3 +27,6 @@ Simply run ``cmake --build .``
 ### MACOS x86_64 (Intel/Universel) / MACOS arm64 (SILICON M1/M2/M3)
 Simply run ``./scripts/osx/setup.sh``
 Then run ``./dist/starbound``
+
+### Credits for the base source code
+Thanks to [rwf93](https://github.com/rwf93/Starbound)
