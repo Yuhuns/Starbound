@@ -61,7 +61,7 @@ using std::cref;
 using namespace std::placeholders;
 
 using std::prev;
-// using std::next;
+using std::next;
 
 using std::atomic;
 using std::atomic_flag;

@@ -8,7 +8,6 @@
 #include "gtest/gtest.h"
 
 using namespace Star;
-using namespace std;
 
 template <typename Key, typename Pointer>
 struct SimpleBTreeIndex {
@@ -533,29 +532,29 @@ struct SimpleBTree : public BTreeMixin<SimpleBTreeBase> {
 
   void print() {
     forAllNodes(Printer());
-    cout << endl;
+    std::cout << std::endl;
   }
 
   struct Printer {
     bool operator()(Index const& index) {
-      cout << "[" << index.level << ":" << index.self << "]"
+      std::cout << "[" << index.level << ":" << index.self << "]"
            << " " << index.beginPointer << " ";
       for (Index::Element e : index.pointers) {
-        cout << "(" << e.key << ")"
+        std::cout << "(" << e.key << ")"
              << " " << e.pointer << " ";
       }
-      cout << endl;
+      std::cout << std::endl;
       return true;
     }
 
     bool operator()(Leaf const& leaf) {
-      cout << "[" << leaf.self << "]"
+      std::cout << "[" << leaf.self << "]"
            << " ";
       for (Leaf::Element e : leaf.elements) {
-        cout << "(" << e.key << ")"
+        std::cout << "(" << e.key << ")"
              << " " << e.data << " ";
       }
-      cout << endl;
+      std::cout << std::endl;
       return true;
     }
   };
