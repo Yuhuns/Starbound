@@ -80,9 +80,11 @@ public:
 
   // Behaves like tileEach, but gathers the results of calling the function into
   // a MultiArray
+  #pragma clang diagnostic push
+  #pragma clang diagnostic ignored "-Wdeprecated-declarations"
   template <typename Function>
   MultiArray<std::result_of_t<Function(Vec2I, Tile)>, 2> tileEachResult(RectI const& region, Function&& function) const;
-
+  #pragma clang diagnostic pop
   // Fastest way to copy data from the tile array to a given target array.
   // Takes a multi-array and a region and a function, resizes the multi-array
   // to be the size of the given region, and then calls the given function on
@@ -316,6 +318,8 @@ void TileSectorArray<Tile, SectorSize>::tileEach(RectI const& region, Function&&
       });
 }
 
+#pragma clang diagnostic push
+#pragma clang diagnostic ignored "-Wdeprecated-declarations"
 template <typename Tile, unsigned SectorSize>
 template <typename Function>
 MultiArray<std::result_of_t<Function(Vec2I, Tile)>, 2> TileSectorArray<Tile, SectorSize>::tileEachResult(RectI const& region, Function&& function) const {
@@ -323,7 +327,7 @@ MultiArray<std::result_of_t<Function(Vec2I, Tile)>, 2> TileSectorArray<Tile, Sec
   tileEachTo(res, region, [&](auto& res, Vec2I const& pos, Tile const& tile) { res = function(pos, tile); });
   return res;
 }
-
+#pragma clang diagnostic pop
 template <typename Tile, unsigned SectorSize>
 template <typename MultiArray, typename Function>
 void TileSectorArray<Tile, SectorSize>::tileEachTo(MultiArray& results, RectI const& region, Function&& function) const {

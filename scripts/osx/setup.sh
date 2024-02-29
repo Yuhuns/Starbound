@@ -5,13 +5,13 @@ cd "`dirname \"$0\"`/../.."
 mkdir -p dist
 cp scripts/osx/sbinit.config dist/
 
-mkdir -p build
-cd build
-
 if [ -d build ]; then
-  echo "-- Cleaning up previous build --"
+  echo "-- Cleaning build directory --"
   rm -rf build
 fi
+
+mkdir -p build
+cd build
 
 echo "-- Checking if brew is installed --"
 if ! command -v brew &> /dev/null; then
@@ -21,7 +21,13 @@ if ! command -v brew &> /dev/null; then
 fi
 
 echo "-- Updating brew --"
-brew update
+if brew update &> /dev/null; then
+  if brew upgrade &> /dev/null; then
+    echo "-- Brew updated --"
+  else
+    echo "-- Brew update failed --"
+  fi
+fi
 
 echo "-- Checking if dependencies are installed --"
 if ! brew list cmake &> /dev/null; then
@@ -54,13 +60,13 @@ elif ! brew list freetype &> /dev/null; then
 fi
 echo "-- Checking dependencies done --"
 
-QT5_INSTALL_PATH=/usr/local/opt/qt5
+QT5_INSTALL_PATH=/opt/homebrew/opt/qt@5
 if [ -d $QT5_INSTALL_PATH ]; then
   export PATH=$QT5_INSTALL_PATH/bin:$PATH
   export LDFLAGS=-L$QT5_INSTALL_PATH/lib
   export CPPFLAGS=-I$QT5_INSTALL_PATH/include
   export CMAKE_PREFIX_PATH=$QT5_INSTALL_PATH
-  BUILD_QT_TOOLS=ON
+  BUILD_QT_TOOLS=OFF
 else
   BUILD_QT_TOOLS=OFF
 fi
@@ -84,14 +90,39 @@ case $choice in
     echo "-- Invalid choice --"
     exit 1
     ;;
-esac  
+esac
+
+echo "-- Choose your build type --"
+echo "1. Debug"
+echo "2. Release"
+echo "3. RelWithDebInfo"
+echo "4. ReleaseWithAsserts"
+read -p "Enter your choice: " choice
+case $choice in
+  1)
+    export CMAKE_BUILD_TYPE=Debug
+    ;;
+  2)
+    export CMAKE_BUILD_TYPE=Release
+    ;;
+  3)
+    export CMAKE_BUILD_TYPE=RelWithDebInfo
+    ;;
+  4)
+    export CMAKE_BUILD_TYPE=ReleaseWithAsserts
+    ;;
+  *)
+    echo "-- Invalid choice --"
+    exit 1
+    ;;
+esac
 
 echo "-- Building Starbound --"
 
 CC=clang CXX=clang++ cmake \
   -DCMAKE_OSX_ARCHITECTURES=$CMAKE_OSX_ARCHITECTURES \
   -DCMAKE_EXPORT_COMPILE_COMMANDS=true \
-  -DCMAKE_BUILD_TYPE=RelWithAsserts \
+  -DCMAKE_BUILD_TYPE=$CMAKE_BUILD_TYPE \
   -DSTAR_BUILD_QT_TOOLS=$BUILD_QT_TOOLS \
   -DSTAR_USE_JEMALLOC=ON \
   -DSTAR_ENABLE_STEAM_INTEGRATION=ON \
