@@ -142,6 +142,7 @@ echo "-- Copying libraries --"
 
 cp $CMAKE_ARCH_LIB/libsteam_api.dylib .
 cp $CMAKE_ARCH_LIB/libdiscord_game_sdk.dylib .
+cp $CMAKE_ARCH_LIB/discord_game_sdk.dylib .
 
 echo "-- Building app --"
 make -j$(sysctl -n hw.logicalcpu) -C../build || exit 1

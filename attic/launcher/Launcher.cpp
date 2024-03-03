@@ -14,6 +14,9 @@
 #include "Launcher.hpp"
 #include "Commands.hpp"
 
+// WebPage.cpp
+#include "Launcher.hpp"
+
 Launcher::Launcher() : QMainWindow() {
   setWindowTitle("Starbound Launcher");
   setFixedSize(1200, 700);

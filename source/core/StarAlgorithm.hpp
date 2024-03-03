@@ -402,11 +402,7 @@ public:
   typedef void pointer;
   typedef void reference;
 
-  #pragma clang diagnostic push
-  #pragma clang diagnostic ignored "-Wdeprecated-declarations"
   typedef typename std::result_of<NullaryFunction()>::type FunctionReturnType;
-
-  #pragma clang diagnostic pop
 
   explicit FunctionInputIterator(NullaryFunction f = {})
     : m_function(std::move(f)) {}

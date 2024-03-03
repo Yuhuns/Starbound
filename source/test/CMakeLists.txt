@@ -4,6 +4,8 @@ include_directories(
     ${STAR_BASE_INCLUDES}
     ${STAR_PLATFORM_INCLUDES}
     ${STAR_GAME_INCLUDES}
+    ${STAR_APPLICATION_INCLUDES}
+    ${STAR_RENDERING_INCLUDES}
   )
 
 # Add top-level test directory so  gtest-all.cc can find its own include file

@@ -189,6 +189,8 @@ tuple<Vec2U, PixelFormat> Image::readPngMetadata(IODevicePtr device) {
     png_set_tRNS_to_alpha(png_ptr);
     channels += 1;
   }
+  //Leak fix
+  png_destroy_read_struct(&png_ptr, &info_ptr, &end_info); // We don't need the image data, just the metadata
 
   Vec2U imageSize{img_width, img_height};
   PixelFormat pixelFormat = channels == 3 ? PixelFormat::RGB24 : PixelFormat::RGBA32;
