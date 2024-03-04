@@ -3,4 +3,4 @@
 cd "$(dirname $0)/../.."
 
 cd build
-make -j3
+cmake --build . --config RelWithDebInfo

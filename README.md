@@ -28,5 +28,8 @@ Simply run ``cmake --build .``
 Simply run ``./scripts/osx/setup.sh``
 Then run ``./dist/starbound``
 
+### Linux (x64 and ARM)
+Work in progress...
+
 ### Credits for the base source code
 Thanks to [rwf93](https://github.com/rwf93/Starbound)
