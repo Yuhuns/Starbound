@@ -1,9 +1,0 @@
-{
-  "name" : "organicruffledchest",
-  "category" : "biped",
-  "type" : "chest",
-
-  "frames" : {
-    "chest" : "ruffledchest.frames"
-  }
-}

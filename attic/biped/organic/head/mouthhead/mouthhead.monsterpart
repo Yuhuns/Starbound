@@ -1,9 +1,0 @@
-{
-  "name" : "organicmouthhead",
-  "category" : "biped",
-  "type" : "head",
-
-  "frames" : {
-    "head" : "mouthhead.frames"
-  }
-}

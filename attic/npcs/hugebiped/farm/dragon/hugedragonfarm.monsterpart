@@ -1,9 +1,0 @@
-{
-  "name" : "hugedragonfarm",
-  "category" : "hugebiped",
-  "type" : "farm",
-
-  "frames" : {
-    "frontArm" : "hugedragonfarm.png"
-  }
-}

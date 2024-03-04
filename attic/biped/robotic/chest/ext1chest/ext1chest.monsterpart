@@ -1,9 +1,0 @@
-{
-  "name" : "roboticext1chest",
-  "category" : "biped_robotic",
-  "type" : "chest",
-
-  "frames" : {
-    "chest" : "ext1chest.frames"
-  }
-}

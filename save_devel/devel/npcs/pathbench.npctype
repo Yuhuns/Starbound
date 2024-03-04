@@ -1,8 +1,0 @@
-{
-  "type" : "pathbench",
-  "baseType" : "base",
-
-  "scriptConfig" : {
-    "behavior" : "/behaviors/npc/pather.behavior"
-  }
-}

@@ -1,9 +1,0 @@
-{
-  "name" : "organichoodhead",
-  "category" : "biped",
-  "type" : "head",
-
-  "frames" : {
-    "head" : "hoodhead.frames"
-  }
-}

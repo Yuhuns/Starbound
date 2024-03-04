@@ -1,9 +1,0 @@
-{
-  "name" : "shroomtail",
-  "category" : "smallshroom",
-  "type" : "tail",
-
-  "frames" : {
-    "tail" : "shroomtail.png"
-  }
-}

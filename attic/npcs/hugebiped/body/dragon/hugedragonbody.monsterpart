@@ -1,9 +1,0 @@
-{
-  "name" : "hugedragonbody",
-  "category" : "hugebiped",
-  "type" : "body",
-
-  "frames" : {
-    "body" : "hugedragonbody.png"
-  }
-}

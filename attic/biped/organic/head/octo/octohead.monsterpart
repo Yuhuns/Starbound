@@ -1,9 +1,0 @@
-{
-  "name" : "organicoctohead",
-  "category" : "biped",
-  "type" : "head",
-
-  "frames" : {
-    "head" : "octohead.frames"
-  }
-}

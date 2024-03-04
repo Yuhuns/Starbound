@@ -1,9 +1,0 @@
-{
-  "name" : "organicskullchest",
-  "category" : "biped",
-  "type" : "chest",
-
-  "frames" : {
-    "chest" : "skullchest.frames"
-  }
-}

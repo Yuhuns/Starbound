@@ -1,9 +1,0 @@
-{
-  "name" : "robotictaperchest",
-  "category" : "biped_robotic",
-  "type" : "chest",
-
-  "frames" : {
-    "chest" : "taperchest.frames"
-  }
-}

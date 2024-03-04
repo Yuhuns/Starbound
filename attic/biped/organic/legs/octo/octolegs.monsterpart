@@ -1,9 +1,0 @@
-{
-  "name" : "organicoctolegs",
-  "category" : "biped",
-  "type" : "legs",
-
-  "frames" : {
-    "legs" : "octolegs.frames"
-  }
-}

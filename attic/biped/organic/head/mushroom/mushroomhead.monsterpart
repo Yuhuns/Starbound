@@ -1,9 +1,0 @@
-{
-  "name" : "organicmushroomhead",
-  "category" : "biped",
-  "type" : "head",
-
-  "frames" : {
-    "head" : "mushroomhead.frames"
-  }
-}

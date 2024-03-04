@@ -1,9 +1,0 @@
-{
-  "name" : "organiccrescenthead",
-  "category" : "biped",
-  "type" : "head",
-
-  "frames" : {
-    "head" : "crescenthead.frames"
-  }
-}

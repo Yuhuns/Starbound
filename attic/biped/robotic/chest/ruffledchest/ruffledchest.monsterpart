@@ -1,9 +1,0 @@
-{
-  "name" : "roboticruffledchest",
-  "category" : "biped_robotic",
-  "type" : "chest",
-
-  "frames" : {
-    "chest" : "ruffledchest.frames"
-  }
-}

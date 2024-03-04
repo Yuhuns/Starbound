@@ -1,9 +1,0 @@
-{
-  "name" : "organicbrainwashervirorbhead",
-  "category" : "biped",
-  "type" : "head",
-
-  "frames" : {
-    "head" : "brainwashervirorbhead.frames"
-  }
-}

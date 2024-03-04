@@ -1,9 +1,0 @@
-{
-  "name" : "organicsnailhead",
-  "category" : "biped",
-  "type" : "head",
-
-  "frames" : {
-    "head" : "snailhead.frames"
-  }
-}

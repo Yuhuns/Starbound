@@ -1,9 +1,0 @@
-{
-  "name" : "body",
-  "category" : "toxicgolem",
-  "type" : "body",
-
-  "frames" : {
-    "body" : "toxicgolem.png"
-  }
-}

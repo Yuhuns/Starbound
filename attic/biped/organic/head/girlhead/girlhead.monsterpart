@@ -1,9 +1,0 @@
-{
-  "name" : "organicgirlhead",
-  "category" : "biped",
-  "type" : "head",
-
-  "frames" : {
-    "head" : "girlhead.frames"
-  }
-}

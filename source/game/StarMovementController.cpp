@@ -613,9 +613,12 @@ void MovementController::tickMaster() {
   
   Vec2F newVelocity = relativeVelocity + m_surfaceVelocity;
 
-  Vec2F __attribute__((unused))pos = position();
+  Vec2F pos = position();
   PolyF body = collisionBody();
-  RectF __attribute__((unused))boundBox = body.boundBox();
+  RectF boundBox = body.boundBox();
+
+  _unused(pos);
+  _unused(boundBox);
 
   updateLiquidPercentage();
 
@@ -792,11 +795,12 @@ void MovementController::updateForceRegions() {
 }
 
 void MovementController::updateLiquidPercentage() {
-  auto __attribute__((unused))geometry = world()->geometry();
+  auto geometry = world()->geometry();
   auto pos = position();
   auto body = collisionBody();
   RectF boundBox = body.boundBox();
 
+  _unused(geometry);
   LiquidLevel cll;
   if (boundBox.isEmpty())
     cll = world()->liquidLevel(Vec2I::floor(pos));

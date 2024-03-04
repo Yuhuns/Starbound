@@ -1,9 +1,0 @@
-{
-  "name" : "organictaperchest",
-  "category" : "biped",
-  "type" : "chest",
-
-  "frames" : {
-    "chest" : "taperchest.frames"
-  }
-}

@@ -1,9 +1,0 @@
-{
-  "name" : "roboticdiverhead",
-  "category" : "biped_robotic",
-  "type" : "head",
-
-  "frames" : {
-    "head" : "diverhead.frames"
-  }
-}

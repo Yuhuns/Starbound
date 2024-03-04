@@ -1,9 +1,0 @@
-{
-  "name" : "organiceyechest",
-  "category" : "biped",
-  "type" : "chest",
-
-  "frames" : {
-    "chest" : "eyechest.frames"
-  }
-}

@@ -1,9 +1,0 @@
-{
-  "name" : "organicstripechest",
-  "category" : "biped",
-  "type" : "chest",
-
-  "frames" : {
-    "chest" : "stripechest.frames"
-  }
-}

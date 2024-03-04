@@ -1,9 +1,0 @@
-{
-  "name" : "roboticwheelzlegs",
-  "category" : "biped_robotic",
-  "type" : "legs",
-
-  "frames" : {
-    "legs" : "wheelzlegs.frames"
-  }
-}

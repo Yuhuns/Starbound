@@ -1,9 +1,0 @@
-{
-  "name" : "organicext2chest",
-  "category" : "biped",
-  "type" : "chest",
-
-  "frames" : {
-    "chest" : "ext2chest.frames"
-  }
-}

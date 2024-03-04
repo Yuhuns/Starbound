@@ -1,9 +1,0 @@
-{
-  "name" : "hugebeakhead",
-  "category" : "hugebiped",
-  "type" : "head",
-
-  "frames" : {
-    "head" : "hugebeakhead.png"
-  }
-}

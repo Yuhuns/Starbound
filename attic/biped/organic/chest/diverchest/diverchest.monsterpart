@@ -1,9 +1,0 @@
-{
-  "name" : "organicdiverchest",
-  "category" : "biped",
-  "type" : "chest",
-
-  "frames" : {
-    "chest" : "diverchest.frames"
-  }
-}

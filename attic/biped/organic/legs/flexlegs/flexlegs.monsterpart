@@ -1,9 +1,0 @@
-{
-  "name" : "organicflexlegs",
-  "category" : "biped",
-  "type" : "legs",
-
-  "frames" : {
-    "legs" : "flexlegs.frames"
-  }
-}

@@ -1,9 +1,0 @@
-{
-  "name" : "head",
-  "category" : "moondancer",
-  "type" : "head",
-
-  "frames" : {
-    "head" : "glow.png"
-  }
-}

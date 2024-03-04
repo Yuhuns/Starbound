@@ -1,9 +1,0 @@
-{
-  "name" : "organictroll1head",
-  "category" : "biped",
-  "type" : "head",
-
-  "frames" : {
-    "head" : "troll1head.frames"
-  }
-}

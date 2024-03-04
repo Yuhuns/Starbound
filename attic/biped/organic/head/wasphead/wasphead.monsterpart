@@ -1,9 +1,0 @@
-{
-  "name" : "organicwasphead",
-  "category" : "biped",
-  "type" : "head",
-
-  "frames" : {
-    "head" : "wasphead.frames"
-  }
-}

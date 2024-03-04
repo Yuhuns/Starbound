@@ -1,9 +1,0 @@
-{
-  "name" : "roboticcameralegs",
-  "category" : "biped_robotic",
-  "type" : "legs",
-
-  "frames" : {
-    "legs" : "cameralegs.frames"
-  }
-}

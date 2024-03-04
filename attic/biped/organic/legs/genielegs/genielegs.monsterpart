@@ -1,9 +1,0 @@
-{
-  "name" : "organicgenielegs",
-  "category" : "biped",
-  "type" : "legs",
-
-  "frames" : {
-    "legs" : "genielegs.frames"
-  }
-}

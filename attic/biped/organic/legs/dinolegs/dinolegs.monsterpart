@@ -1,9 +1,0 @@
-{
-  "name" : "organicdinolegs",
-  "category" : "biped",
-  "type" : "legs",
-
-  "frames" : {
-    "legs" : "dinolegs.frames"
-  }
-}

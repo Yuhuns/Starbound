@@ -1,9 +1,0 @@
-{
-  "name" : "roboticblockchest",
-  "category" : "biped_robotic",
-  "type" : "chest",
-
-  "frames" : {
-    "chest" : "blockchest.frames"
-  }
-}

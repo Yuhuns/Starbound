@@ -1,9 +1,0 @@
-{
-  "name" : "royalchest",
-  "category" : "chesttrapper",
-  "type" : "chest",
-
-  "frames" : {
-    "chest" : "royalchest.png"
-  }
-}

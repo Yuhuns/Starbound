@@ -1,9 +1,0 @@
-{
-  "name" : "body",
-  "category" : "heckblob",
-  "type" : "body",
-
-  "frames" : {
-    "body" : "heckblob.png"
-  }
-}

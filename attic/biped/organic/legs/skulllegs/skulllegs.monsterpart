@@ -1,9 +1,0 @@
-{
-  "name" : "organicskulllegs",
-  "category" : "biped",
-  "type" : "legs",
-
-  "frames" : {
-    "legs" : "skulllegs.frames"
-  }
-}

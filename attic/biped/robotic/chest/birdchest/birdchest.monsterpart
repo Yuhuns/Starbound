@@ -1,9 +1,0 @@
-{
-  "name" : "roboticbirdchest",
-  "category" : "biped_robotic",
-  "type" : "chest",
-
-  "frames" : {
-    "chest" : "birdchest.frames"
-  }
-}

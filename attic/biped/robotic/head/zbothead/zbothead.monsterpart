@@ -1,9 +1,0 @@
-{
-  "name" : "roboticzbothead",
-  "category" : "biped_robotic",
-  "type" : "head",
-
-  "frames" : {
-    "head" : "zbothead.frames"
-  }
-}

@@ -1,9 +1,0 @@
-{
-  "name" : "skeyejellytail",
-  "category" : "skeyejelly",
-  "type" : "tail",
-
-  "frames" : {
-    "tail" : "skeyejellytail.png"
-  }
-}

@@ -1,9 +1,0 @@
-{
-  "name" : "roboticdomebothead",
-  "category" : "biped_robotic",
-  "type" : "head",
-
-  "frames" : {
-    "head" : "domebothead.frames"
-  }
-}

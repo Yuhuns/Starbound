@@ -1,9 +1,0 @@
-{
-  "name" : "roboticrobosuit2chest",
-  "category" : "biped_robotic",
-  "type" : "chest",
-
-  "frames" : {
-    "chest" : "robosuit2chest.frames"
-  }
-}
