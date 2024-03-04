@@ -12,20 +12,17 @@ Optionally, Install [QT 5.6.0](https://download.qt.io/new_archive/qt/5.6/5.6.0/q
 Optionally, Install [Ninja](https://github.com/ninja-build/ninja/releases) if using Visual Studio Code (pip can be used to install it as well)
 
 ### Visual Studio
-
-Run ``scripts\windows\setup64.bat``  
-A solution should be generated in the ``build`` folder  
-Open it and click Build (shortcut: CTRL+B)
+Work in progress...
 
 ### Visual Studio Code
 Open a vcvars64 window (x64 Native Tools Command Prompt for VS 2022)  
-Run ``scripts\windows\setup64-ninja.bat``  
+Run ``scripts\windows\setup.bat``
 
 A ninja project should be generated in the ``build`` folder  
 Simply run ``cmake --build .``
 
 ### MACOS x86_64 (Intel/Universel) / MACOS arm64 (SILICON M1/M2/M3)
-Simply run ``./scripts/osx/setup.sh``
+Simply run ``./scripts/osx/setup-and-build.sh`` or ``./scripts/setup.sh``
 Then run ``./dist/starbound``
 
 ### Linux (x64 and ARM)

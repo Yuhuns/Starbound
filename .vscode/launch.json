@@ -5,6 +5,18 @@
     "version": "0.2.0",
     "configurations": [
         {
+            "name": "starbound",
+            "type": "cppdbg",
+            "request": "launch",
+            "program": "${workspaceRoot}/dist/starbound",
+            "args": [],
+            "stopAtEntry": false,
+            "cwd": "${workspaceRoot}",
+            "environment": [],
+            "externalConsole": false,
+            "MIMode": "lldb"
+        },
+        {
             "name": "Current Target (Win64)",
             "type": "cppvsdbg",
             "request": "launch",

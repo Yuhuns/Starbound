@@ -9,7 +9,7 @@ mkdir -p build
 cd build
 
 #Universal arch by default
-CC=clang CXX=clang++ /Applications/CMake.app/Contents/bin/cmake \
+CC=clang CXX=clang++ cmake \
   -DCMAKE_OSX_ARCHITECTURES=x86_64 \
   -DCMAKE_EXPORT_COMPILE_COMMANDS=true \
   -DCMAKE_BUILD_TYPE=RelWithDebInfo \
