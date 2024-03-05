@@ -653,7 +653,7 @@ private:
 
   SignalHandler m_signalHandler;
 
-  TickRateApproacher m_updateTicker = TickRateApproacher(120.0f, 1.0f);
+  TickRateApproacher m_updateTicker = TickRateApproacher(STAR_FPS, 1.0f);
   float m_updateRate = 0.0f;
   TickRateMonitor m_renderTicker = TickRateMonitor(1.0f);
   float m_renderRate = 0.0f;
@@ -683,6 +683,7 @@ int runMainApplication(ApplicationUPtr application, StringList cmdLineArgs) {
   try {
     {
       SdlPlatform platform(std::move(application), std::move(cmdLineArgs));
+      Logger::info("Application: FPS: %f", STAR_FPS);
       platform.run();
     }
     Logger::info("Application: stopped gracefully");

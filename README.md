@@ -17,7 +17,8 @@ Work in progress...
 ### Visual Studio Code (ONLY x64 SUPPORT)
 Open a terminal
 Setup your build : ./scripts/windows/setup_ninja.bat or ./scripts/windows/setup.bat
-Build : ./scripts/windows/build.bat
+
+Build : ./scripts/windows/build.bat Release
 Compile your game to share : ./scripts/windows/compile_game.bat
 
 Run : starbound.exe
@@ -26,7 +27,7 @@ Run : starbound.exe
 Build : ./scripts/osx/setup-and-build.sh build
 Zip : ./scripts/osx/setup-and-build.sh zip (to share your app) !! warning !! You need to sign-it with codesign
 
-Run : ./dist/starbound or click on the Starbound.app in the dist folder.
+Run : ./dist/starbound or exec the Starbound.app in the dist folder.
 
 ### Linux (x64 and ARM)
 Work in progress...
