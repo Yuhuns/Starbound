@@ -14,19 +14,25 @@ Optionally, Install [Ninja](https://github.com/ninja-build/ninja/releases) if us
 ### Visual Studio
 Work in progress...
 
-### Visual Studio Code
-Open a vcvars64 window (x64 Native Tools Command Prompt for VS 2022)  
-Run ``scripts\windows\setup.bat``
+### Visual Studio Code (ONLY x64 SUPPORT)
+Open a terminal
+Setup your build : ./scripts/windows/setup_ninja.bat or ./scripts/windows/setup.bat
+Build : ./scripts/windows/build.bat
+Compile your game to share : ./scripts/windows/compile_game.bat
 
-A ninja project should be generated in the ``build`` folder  
-Simply run ``cmake --build .``
+Run : starbound.exe
 
 ### MACOS x86_64 (Intel/Universel) / MACOS arm64 (SILICON M1/M2/M3)
-Simply run ``./scripts/osx/setup-and-build.sh`` or ``./scripts/setup.sh``
-Then run ``./dist/starbound``
+Build : ./scripts/osx/setup-and-build.sh build
+Zip : ./scripts/osx/setup-and-build.sh zip (to share your app) !! warning !! You need to sign-it with codesign
+
+Run : ./dist/starbound or click on the Starbound.app in the dist folder.
 
 ### Linux (x64 and ARM)
 Work in progress...
+
+### Discord
+yuhuns
 
 ### Credits for the base source code
 Thanks to [rwf93](https://github.com/rwf93/Starbound)

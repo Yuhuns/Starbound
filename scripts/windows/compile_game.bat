@@ -21,4 +21,4 @@ rmdir /s /q storage
 rmdir /s /q mods
 rmdir /s /q win64
 
-echo Compilation terminée.
+echo Done
