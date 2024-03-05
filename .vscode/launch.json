@@ -5,7 +5,7 @@
     "version": "0.2.0",
     "configurations": [
         {
-            "name": "starbound",
+            "name": "Debug Starbound (MacOS)",
             "type": "cppdbg",
             "request": "launch",
             "program": "${workspaceRoot}/dist/starbound",
@@ -17,15 +17,15 @@
             "MIMode": "lldb"
         },
         {
-            "name": "Current Target (Win64)",
+            "name": "Debug Starbound (Win64)",
             "type": "cppvsdbg",
             "request": "launch",
-            "program": "${command:cmake.launchTargetPath}",
+            "program": "${workspaceRoot}/dist/starbound.exe",
             "args": [],
             "stopAtEntry": false,
-            "cwd": "${command:cmake.launchTargetDirectory}",
+            "cwd": "${workspaceRoot}",
             "environment": [],
-            "console": "externalTerminal"
+            "externalConsole": false
         }
     ]
 }

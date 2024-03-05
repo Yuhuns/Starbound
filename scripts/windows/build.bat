@@ -4,4 +4,6 @@ cd ..\..
 cd build
 IF %ERRORLEVEL% NEQ 0 exit /b %ERRORLEVEL%
 
-"C:\Program Files (x86)\CMake\bin\cmake.exe" --build . --config %1
+call "C:\Program Files\Microsoft Visual Studio\2022\Community\VC\Auxiliary\Build\vcvars64.bat"
+
+"C:\Program Files\CMake\bin\cmake.exe" --build . --config %1

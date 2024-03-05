@@ -5,6 +5,7 @@ mkdir dist
 del dist\*.dll
 copy lib\windows\*.dll dist\
 copy scripts\windows\sbinit.config dist\
+copy icon
 
 mkdir build
 cd build
@@ -24,10 +25,9 @@ call "C:\Program Files\Microsoft Visual Studio\2022\Community\VC\Auxiliary\Build
 if exist %QT_PREFIX_PATH% (
 
 %CMAKE_EXE_PATH%\cmake.exe ^
-  -G"Visual Studio 17 2022" ^
-  -T"v143" ^
-  -DCMAKE_PREFIX_PATH=%QT_PREFIX_PATH% ^
+  -G "Ninja Multi-Config" ^
   -DCMAKE_EXPORT_COMPILE_COMMANDS=ON ^
+  -DCMAKE_PREFIX_PATH=%QT_PREFIX_PATH% ^
   -DSTAR_USE_JEMALLOC=ON ^
   -DSTAR_ENABLE_STEAM_INTEGRATION=ON ^
   -DSTAR_ENABLE_DISCORD_INTEGRATION=ON ^
@@ -39,8 +39,7 @@ if exist %QT_PREFIX_PATH% (
 ) else (
 
 %CMAKE_EXE_PATH%\cmake.exe ^
-  -G"Visual Studio 17 2022" ^
-  -T"v143" ^
+  -G "Ninja Multi-Config" ^
   -DCMAKE_EXPORT_COMPILE_COMMANDS=ON ^
   -DSTAR_USE_JEMALLOC=ON ^
   -DSTAR_ENABLE_STEAM_INTEGRATION=ON ^
@@ -48,7 +47,5 @@ if exist %QT_PREFIX_PATH% (
   -DCMAKE_INCLUDE_PATH="..\lib\windows\include" ^
   -DCMAKE_LIBRARY_PATH="..\lib\windows" ^
   ..\source
-
 )
-
 pause

@@ -4,3 +4,7 @@ build/
 assets/
 .vs/
 attic/
+game_windows_x86_64.zip
+game_macos_x86_64.zip
+game_linux_x86_64.zip
+game_macos_arm64.zip

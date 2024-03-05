@@ -21,8 +21,8 @@
         },
         {
             "name": "Windows MSVC x86-64",
-            "intelliSenseMode": "msvc-x64",
-            "cStandard": "c11",
+            "intelliSenseMode": "windows-msvc-x64",
+            "cStandard": "c17",
             "cppStandard": "c++17",
             "compileCommands": "${workspaceFolder}/build/compile_commands.json",
             "browse": {
@@ -32,7 +32,10 @@
                 "limitSymbolsToIncludedHeaders": true,
                 "databaseFilename": ""
             },
-            "configurationProvider": "ms-vscode.makefile-tools"
+            "configurationProvider": "ms-vscode.makefile-tools",
+            "includePath": [
+                "${workspaceFolder}/**"
+            ]
         }
     ],
     "version": 4
