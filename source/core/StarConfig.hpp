@@ -75,7 +75,7 @@ constexpr bool DebugEnabled = true;
 constexpr bool DebugEnabled = false;
 #endif
 
-#define STAR_FPS 120.0f
+#define STAR_FPS 144.0f
 
 // A version of string::npos that's used in general to mean "not a position"
 // and is the largest value for size_t.

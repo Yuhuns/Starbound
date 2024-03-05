@@ -31,7 +31,6 @@ Json const AdditionalDefaultConfiguration = Json::parseJson(R"JSON(
       },
 
       "allowAssetsMismatch" : false,
-      "fpsLimit" : 60,
       "vsync" : true,
       "limitTextureAtlasSize" : false,
       "useMultiTexturing" : true,
@@ -169,16 +168,9 @@ void ClientApplication::applicationInit(ApplicationControllerPtr appController) 
 
   m_guiContext = make_shared<GuiContext>(m_mainMixer->mixer(), appController);
 
-  auto configuration = m_root->configuration();
-  float fpsLimit = configuration->get("fpsLimit").toFloat();
-  if (fpsLimit < 30.0f || fpsLimit > 144.0f)
-  {
-    Logger::warn("Invalid fpsLimit value: %f (set to default : 60hz)", fpsLimit);
-    fpsLimit = 60.0f;
-  }
-  appController->setTargetUpdateRate(1.0f / fpsLimit);
-  //appController->setTargetUpdateRate(1.0f / WorldTimestep);
+  appController->setTargetUpdateRate(1.0f / WorldTimestep);
 
+  auto configuration = m_root->configuration();
   bool vsync = configuration->get("vsync").toBool();
   Vec2U windowedSize = jsonToVec2U(configuration->get("windowedResolution"));
   Vec2U fullscreenSize = jsonToVec2U(configuration->get("fullscreenResolution"));
