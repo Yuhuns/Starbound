@@ -93,7 +93,7 @@ extern EnumMap<Rarity> const RarityNames;
 // distance (one tile).
 unsigned const TilePixels = 8;
 
-float const WorldTimestep = 1.0f / STAR_FPS;
+float const WorldTimestep = 1.0f / 60.0f; //TODO: Put value in config file
 float const SystemWorldTimestep = 1.0f / 20.0f; // TODO: check later
 
 size_t const WorldSectorSize = 32;
