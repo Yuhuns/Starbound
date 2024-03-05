@@ -5,19 +5,19 @@ cd build
 
 rm -f CMakeCache.txt
 
-cmake \
+CC=clang CXX=clang++ cmake \
   -DCMAKE_BUILD_TYPE=Release \
   -DSTAR_ENABLE_STATIC_LIBGCC_LIBSTDCXX=ON \
   -DSTAR_USE_JEMALLOC=OFF \
+  -DSTAR_OSX_ARCHITECTURES="x86_64" \
   -DSTAR_ENABLE_STEAM_INTEGRATION=ON \
   -DSTAR_ENABLE_DISCORD_INTEGRATION=ON \
   -DCMAKE_INCLUDE_PATH=../lib/osx/include \
   -DCMAKE_LIBRARY_PATH=../lib/osx \
-  -DCMAKE_OSX_SYSROOT=/ \
-  -DCMAKE_OSX_DEPLOYMENT_TARGET=10.9 \
+  -DCMAKE_OSX_DEPLOYMENT_TARGET=14.1 \
   ../source
 
-make -j2
+make -j$(sysctl -n hw.logicalcpu)
 
 cd ..
 

@@ -653,7 +653,7 @@ private:
 
   SignalHandler m_signalHandler;
 
-  TickRateApproacher m_updateTicker = TickRateApproacher(60.0f, 1.0f);
+  TickRateApproacher m_updateTicker = TickRateApproacher(120.0f, 1.0f);
   float m_updateRate = 0.0f;
   TickRateMonitor m_renderTicker = TickRateMonitor(1.0f);
   float m_renderRate = 0.0f;

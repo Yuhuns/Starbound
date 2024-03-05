@@ -8,7 +8,7 @@
             "name": "Debug Starbound (MacOS)",
             "type": "cppdbg",
             "request": "launch",
-            "program": "${workspaceRoot}/dist/starbound",
+            "program": "${workspaceRoot}/dist/Starbound.app",
             "args": [],
             "stopAtEntry": false,
             "cwd": "${workspaceRoot}",
