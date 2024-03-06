@@ -66,5 +66,6 @@
         "variant": "cpp",
         "algorithm": "cpp",
         "iterator": "cpp"
-    }
+    },
+    "cmake.configureOnOpen": true
 }

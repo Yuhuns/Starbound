@@ -1,6 +1,4 @@
-cmake_minimum_required(VERSION 3.10)
 project(rendererTest)
-
 # Add include directories
 include_directories(
     ${STAR_EXTERN_INCLUDES}
@@ -46,14 +44,14 @@ set(render_test_HEADERS
 )
 
 # Ajouter l'exécutable et les fichiers objets des bibliothèques cibles
-add_executable(render_test
-    ${render_test_SOURCES}
+add_executable(render_test WIN32
     $<TARGET_OBJECTS:star_extern>
     $<TARGET_OBJECTS:star_core>
     $<TARGET_OBJECTS:star_base>
     $<TARGET_OBJECTS:star_game>
 	$<TARGET_OBJECTS:star_rendering>
 	$<TARGET_OBJECTS:star_application>
+    ${render_test_SOURCES}
 )
 
 # Lier les bibliothèques

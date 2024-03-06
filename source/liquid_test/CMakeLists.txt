@@ -56,14 +56,14 @@ set(liquid_test_SOURCES
 )
 
 # Ajouter l'exécutable et les fichiers objets des bibliothèques cibles
-add_executable(liquid_test
-    ${liquid_test_SOURCES}
+add_executable(liquid_test WIN32
     $<TARGET_OBJECTS:star_extern>
     $<TARGET_OBJECTS:star_core>
     $<TARGET_OBJECTS:star_base>
     $<TARGET_OBJECTS:star_game>
 	$<TARGET_OBJECTS:star_rendering>
 	$<TARGET_OBJECTS:star_application>
+    ${liquid_test_SOURCES}
 )
 
 # Lier les bibliothèques
