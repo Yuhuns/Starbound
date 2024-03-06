@@ -17,6 +17,18 @@
             "MIMode": "lldb"
         },
         {
+            "name": "Debug JSON_TOOL (MacOS)",
+            "type": "cppdbg",
+            "request": "launch",
+            "program": "${workspaceRoot}/dist/json_tool",
+            "args": [],
+            "stopAtEntry": false,
+            "cwd": "${workspaceRoot}",
+            "environment": [],
+            "externalConsole": false,
+            "MIMode": "lldb"
+        },
+        {
             "name": "Debug Starbound (Win64)",
             "type": "cppvsdbg",
             "request": "launch",

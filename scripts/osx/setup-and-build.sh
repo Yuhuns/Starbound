@@ -61,13 +61,13 @@ if [ "$1" == "build" ]; then
   fi
   echo "-- Checking dependencies done --"
 
-  QT5_INSTALL_PATH=/opt/homebrew/opt/qt@5
+  QT5_INSTALL_PATH=/opt/homebrew/Cellar/qt@5/5.15.12_1
   if [ -d $QT5_INSTALL_PATH ]; then
     export PATH=$QT5_INSTALL_PATH/bin:$PATH
     export LDFLAGS=-L$QT5_INSTALL_PATH/lib
     export CPPFLAGS=-I$QT5_INSTALL_PATH/include
     export CMAKE_PREFIX_PATH=$QT5_INSTALL_PATH
-    BUILD_QT_TOOLS=OFF
+    BUILD_QT_TOOLS=ON
   else
     BUILD_QT_TOOLS=OFF
   fi
@@ -130,6 +130,7 @@ if [ "$1" == "build" ]; then
   echo "-- Building Starbound --"
 
   CC=clang CXX=clang++ cmake \
+    -DCMAKE_CXX_STANDARD=17 \
     -DCMAKE_OSX_ARCHITECTURES=$CMAKE_OSX_ARCHITECTURES \
     -DCMAKE_EXPORT_COMPILE_COMMANDS=$COMPILE_COMMAND \
     -DCMAKE_BUILD_TYPE=$CMAKE_BUILD_TYPE \
