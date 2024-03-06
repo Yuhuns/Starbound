@@ -167,9 +167,7 @@ void ClientApplication::applicationInit(ApplicationControllerPtr appController) 
   m_mainMixer->setVolume(0.5);
 
   m_guiContext = make_shared<GuiContext>(m_mainMixer->mixer(), appController);
-
-  appController->setTargetUpdateRate(1.0f / WorldTimestep);
-
+  
   auto configuration = m_root->configuration();
   bool vsync = configuration->get("vsync").toBool();
   Vec2U windowedSize = jsonToVec2U(configuration->get("windowedResolution"));
@@ -178,6 +176,19 @@ void ClientApplication::applicationInit(ApplicationControllerPtr appController) 
   bool borderless = configuration->get("borderless").toBool();
   bool maximized = configuration->get("maximized").toBool();
 
+  float fpsUpdateRate = 1.0f / WorldTimestep;
+  if (auto customFps = configuration->get("fpsUpdateRate"))
+  {
+    if (customFps.toFloat() < 30.0f || customFps.toFloat() > 144.0f)
+    {
+      Logger::warn("Invalid fpsUpdateRate in starbound.config, must be between 30 and 144");
+      customFps = 60.0f;
+    }
+    fpsUpdateRate = customFps.toFloat();
+    WorldTimestep = 1.0f / fpsUpdateRate;
+  }
+  Logger::info("Setting target update rate to %f", fpsUpdateRate);
+  appController->setTargetUpdateRate(fpsUpdateRate);
   appController->setApplicationTitle(m_root->assets()->json("/client.config:windowTitle").toString());
   appController->setVSyncEnabled(vsync);
 

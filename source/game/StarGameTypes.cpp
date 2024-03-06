@@ -2,6 +2,8 @@
 
 namespace Star {
 
+float WorldTimestep = 1.0f / 60.0f;
+
 EnumMap<Direction> const DirectionNames{
   {Direction::Left, "left"},
   {Direction::Right, "right"},
