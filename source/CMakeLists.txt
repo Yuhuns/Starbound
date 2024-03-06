@@ -532,6 +532,12 @@ if(STAR_BUILD_GUI)
   # Starbound game / client
   add_subdirectory(client)
 
+  set(STAR_FRONTEND_INCLUDES ${PROJECT_SOURCE_DIR}/liquid_test)
+  add_subdirectory(liquid_test)
+
+  set(STAR_FRONTEND_INCLUDES ${PROJECT_SOURCE_DIR}/renderer_test)
+  add_subdirectory(renderer_test)
+
   # Qt GUI tools
   if(STAR_BUILD_QT_TOOLS)
     add_subdirectory(json_tool)

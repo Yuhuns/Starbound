@@ -29,6 +29,18 @@
             "MIMode": "lldb"
         },
         {
+            "name": "Debug MOD_UPLOADER (MacOS)",
+            "type": "cppdbg",
+            "request": "launch",
+            "program": "${workspaceRoot}/dist/mod_uploader",
+            "args": [],
+            "stopAtEntry": false,
+            "cwd": "${workspaceRoot}",
+            "environment": [],
+            "externalConsole": false,
+            "MIMode": "lldb"
+        },
+        {
             "name": "Debug Starbound (Win64)",
             "type": "cppvsdbg",
             "request": "launch",

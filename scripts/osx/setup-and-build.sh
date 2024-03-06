@@ -102,8 +102,9 @@ if [ "$1" == "build" ]; then
   case $choice in
     1)
       export CMAKE_BUILD_TYPE=Debug
-      export JE_MALLOC=ON
+      export JE_MALLOC=OFF
       export COMPILE_COMMAND=ON
+      BUILD_QT_TOOLS=OFF
       ;;
     2)
       export CMAKE_BUILD_TYPE=Release
