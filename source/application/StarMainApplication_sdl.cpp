@@ -289,9 +289,18 @@ public:
       Logger::info("Application: Opened default audio device with 44.1khz / 16 bit stereo audio, %s sample size buffer", obtained.samples);
       Logger::info("SDL_AudioDeviceID m_audioDeviceID: %u", m_audioDeviceID);
     }
+    SDL_DisplayMode actualDisplayMode;
+    if (SDL_GetWindowDisplayMode(m_sdlWindow, &actualDisplayMode) == 0) 
+    {
+        m_windowSize = {(unsigned)actualDisplayMode.w, (unsigned)actualDisplayMode.h};
+        m_windowRate = actualDisplayMode.refresh_rate;
+        Logger::info("Actual display mode: %s, %s, %s", (unsigned)actualDisplayMode.w, (unsigned)actualDisplayMode.h, (unsigned)actualDisplayMode.refresh_rate);
+    }
+    else 
+        Logger::error("Couldn't get window display mode!");
 
     m_renderer = make_shared<OpenGl20Renderer>();
-    m_renderer->setScreenSize(m_windowSize);
+    m_renderer->setScreenSize(m_windowSize, m_windowRate);
   }
 
   ~SdlPlatform() {    
@@ -393,6 +402,16 @@ private:
       SDL_SetClipboardText(text.utf8Ptr());
     }
 
+    float getUpdateRate() const override {
+      return parent->m_windowRate;
+    }
+
+    void setUpdateRate(float updateRate) override {
+      if (parent->m_windowRate == 0)
+        parent->m_windowRate = 60.0f;
+      parent->m_updateTicker.setTargetTickRate(updateRate);
+    }
+
     void setTargetUpdateRate(float targetUpdateRate) override {
       parent->m_updateTicker.setTargetTickRate(targetUpdateRate);
     }
@@ -430,9 +449,10 @@ private:
         SDL_DisplayMode actualDisplayMode;
         if (SDL_GetWindowDisplayMode(parent->m_sdlWindow, &actualDisplayMode) == 0) {
           parent->m_windowSize = {(unsigned)actualDisplayMode.w, (unsigned)actualDisplayMode.h};
+          parent->m_windowRate = actualDisplayMode.refresh_rate;
 
           // call these manually since no SDL_WindowEvent is triggered when changing between fullscreen resolutions for some reason
-          parent->m_renderer->setScreenSize(parent->m_windowSize);
+          parent->m_renderer->setScreenSize(parent->m_windowSize, parent->m_windowRate);
           parent->m_application->windowChanged(parent->m_windowMode, parent->m_windowSize);
         } else {
           Logger::error("Couldn't get window display mode!");
@@ -473,8 +493,9 @@ private:
         SDL_DisplayMode actualDisplayMode;
         if (SDL_GetWindowDisplayMode(parent->m_sdlWindow, &actualDisplayMode) == 0) {
           parent->m_windowSize = {(unsigned)actualDisplayMode.w, (unsigned)actualDisplayMode.h};
+          parent->m_windowRate = actualDisplayMode.refresh_rate;
 
-          parent->m_renderer->setScreenSize(parent->m_windowSize);
+          parent->m_renderer->setScreenSize(parent->m_windowSize, parent->m_windowRate);
           parent->m_application->windowChanged(parent->m_windowMode, parent->m_windowSize);
         } else {
           Logger::error("Couldn't get window display mode!");
@@ -581,7 +602,7 @@ private:
 
         } else if (event.window.event == SDL_WINDOWEVENT_RESIZED || event.window.event == SDL_WINDOWEVENT_SIZE_CHANGED) {
           m_windowSize = Vec2U(event.window.data1, event.window.data2);
-          m_renderer->setScreenSize(m_windowSize);
+          m_renderer->setScreenSize(m_windowSize, m_windowRate);
           m_application->windowChanged(m_windowMode, m_windowSize);
         }
 
@@ -662,6 +683,7 @@ private:
   SDL_GLContext m_sdlGlContext = nullptr;
 
   Vec2U m_windowSize = {800, 600};
+  float m_windowRate = 60.0f;
   WindowMode m_windowMode = WindowMode::Normal;
 
   String m_windowTitle = "";
@@ -673,6 +695,7 @@ private:
   bool m_quitRequested = false;
 
   SDL_AudioDeviceID m_audioDeviceID = 0;
+  
 
   OpenGl20RendererPtr m_renderer;
   ApplicationUPtr m_application;

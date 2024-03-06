@@ -177,6 +177,8 @@ void ClientApplication::applicationInit(ApplicationControllerPtr appController) 
   bool maximized = configuration->get("maximized").toBool();
 
   float fpsUpdateRate = 1.0f / WorldTimestep;
+  float maxRate = appController->getUpdateRate();
+  Logger::info("Maximum update rate is %f", maxRate);
   if (auto customFps = configuration->get("fpsUpdateRate"))
   {
     if (customFps.toFloat() < 30.0f || customFps.toFloat() > 144.0f)
@@ -184,9 +186,15 @@ void ClientApplication::applicationInit(ApplicationControllerPtr appController) 
       Logger::warn("Invalid fpsUpdateRate in starbound.config, must be between 30 and 144");
       customFps = 60.0f;
     }
+    if (maxRate < customFps.toFloat())
+    {
+      customFps = maxRate;
+      Logger::warn("fpsUpdateRate in starbound.config is higher than the maximum update rate (%f), setting to maximum update rate", maxRate);
+    }
     fpsUpdateRate = customFps.toFloat();
     WorldTimestep = 1.0f / fpsUpdateRate;
   }
+
   Logger::info("Setting target update rate to %f", fpsUpdateRate);
   appController->setTargetUpdateRate(fpsUpdateRate);
   appController->setApplicationTitle(m_root->assets()->json("/client.config:windowTitle").toString());
@@ -796,6 +804,7 @@ void ClientApplication::updateRunning() {
     }
 
     Vec2F aimPosition = m_player->aimPosition();
+    LogMap::set("window_max_rate", appController()->getUpdateRate());
     LogMap::set("render_fps", appController()->renderFps());
     LogMap::set("update_rate", appController()->updateRate());
     LogMap::set("player_pos", strf("%4.2f %4.2f", m_player->position()[0], m_player->position()[1]));

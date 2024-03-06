@@ -48,6 +48,9 @@ public:
   virtual void setClipboard(String text) = 0;
   virtual Maybe<String> getClipboard() = 0;
 
+  virtual float getUpdateRate() const = 0;
+  virtual void setUpdateRate(float updateRate) = 0;
+
   // Returns the latest actual measured update and render rate, which may be
   // different than the target update rate.
   virtual float updateRate() const = 0;
