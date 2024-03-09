@@ -34,6 +34,9 @@ if [ "$1" == "build" ]; then
   if ! brew list cmake &> /dev/null; then
     echo "-- Installing cmake --"
     brew install cmake
+  elif ! brew list qt@5 &> /dev/null; then
+    echo "-- Installing qt@5 --"
+    brew install qt@5
   elif ! brew list ninja &> /dev/null; then
     echo "-- Installing ninja --"
     brew install ninja
@@ -109,7 +112,7 @@ if [ "$1" == "build" ]; then
     2)
       export CMAKE_BUILD_TYPE=Release
       export JE_MALLOC=OFF
-      export COMPILE_COMMAND=OFF
+      export COMPILE_COMMAND=ON
       export STATIC=ON
       ;;
     3)
