@@ -383,11 +383,10 @@ void OpenGl20Renderer::flush() {
   flushImmediatePrimitives();
 }
 
-void OpenGl20Renderer::setScreenSize(Vec2U screenSize, int rate) {
+void OpenGl20Renderer::setScreenSize(Vec2U screenSize) {
   m_screenSize = screenSize;
   glViewport(0, 0, m_screenSize[0], m_screenSize[1]);
   glUniform2f(m_screenSizeUniform, m_screenSize[0], m_screenSize[1]);
-  m_screenRate = rate;
 }
 
 void OpenGl20Renderer::startFrame() {

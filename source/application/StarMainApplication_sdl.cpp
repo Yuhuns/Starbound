@@ -300,7 +300,7 @@ public:
         Logger::error("Couldn't get window display mode!");
 
     m_renderer = make_shared<OpenGl20Renderer>();
-    m_renderer->setScreenSize(m_windowSize, m_windowRate);
+    m_renderer->setScreenSize(m_windowSize);
   }
 
   ~SdlPlatform() {    
@@ -452,7 +452,7 @@ private:
           parent->m_windowRate = actualDisplayMode.refresh_rate;
 
           // call these manually since no SDL_WindowEvent is triggered when changing between fullscreen resolutions for some reason
-          parent->m_renderer->setScreenSize(parent->m_windowSize, parent->m_windowRate);
+          parent->m_renderer->setScreenSize(parent->m_windowSize);
           parent->m_application->windowChanged(parent->m_windowMode, parent->m_windowSize);
         } else {
           Logger::error("Couldn't get window display mode!");
@@ -495,7 +495,7 @@ private:
           parent->m_windowSize = {(unsigned)actualDisplayMode.w, (unsigned)actualDisplayMode.h};
           parent->m_windowRate = actualDisplayMode.refresh_rate;
 
-          parent->m_renderer->setScreenSize(parent->m_windowSize, parent->m_windowRate);
+          parent->m_renderer->setScreenSize(parent->m_windowSize);
           parent->m_application->windowChanged(parent->m_windowMode, parent->m_windowSize);
         } else {
           Logger::error("Couldn't get window display mode!");
@@ -602,7 +602,7 @@ private:
 
         } else if (event.window.event == SDL_WINDOWEVENT_RESIZED || event.window.event == SDL_WINDOWEVENT_SIZE_CHANGED) {
           m_windowSize = Vec2U(event.window.data1, event.window.data2);
-          m_renderer->setScreenSize(m_windowSize, m_windowRate);
+          m_renderer->setScreenSize(m_windowSize);
           m_application->windowChanged(m_windowMode, m_windowSize);
         }
 

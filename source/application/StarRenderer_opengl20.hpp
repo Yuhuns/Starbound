@@ -37,7 +37,7 @@ public:
 
   void flush() override;
 
-  void setScreenSize(Vec2U screenSize, int rate);
+  void setScreenSize(Vec2U screenSize);
 
   void startFrame();
   void finishFrame();
@@ -166,7 +166,6 @@ private:
   void renderGlBuffer(GlRenderBuffer const& renderBuffer, Mat3F const& transformation);
 
   Vec2U m_screenSize;
-  int m_screenRate;
 
   GLuint m_program = 0;
 
