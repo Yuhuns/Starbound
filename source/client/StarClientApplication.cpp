@@ -186,7 +186,7 @@ void ClientApplication::applicationInit(ApplicationControllerPtr appController) 
       Logger::warn("Invalid fpsUpdateRate in starbound.config, must be between 30 and 144");
       customFps = 60.0f;
     }
-    if (maxRate < customFps.toFloat())
+    if (customFps.toFloat() > maxRate)
     {
       customFps = maxRate;
       Logger::warn("fpsUpdateRate in starbound.config is higher than the maximum update rate (%f), setting to maximum update rate", maxRate);
