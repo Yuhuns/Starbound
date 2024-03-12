@@ -161,7 +161,8 @@ if [ "$1" == "build" ]; then
   cp $CMAKE_ARCH_LIB/discord_game_sdk.dylib .
 
 echo "-- Building app --"
-make -j$(sysctl -n hw.logicalcpu) -C../build || exit 1
+make -j$(sysctl -n hw.logicalcpu) -C../build || echo "build failed" || exit 1
+cd ..
 fi
 
 echo "-- Making app bundle --"

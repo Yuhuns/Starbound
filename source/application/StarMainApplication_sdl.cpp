@@ -426,7 +426,11 @@ private:
         SDL_SetWindowTitle(parent->m_sdlWindow, parent->m_windowTitle.utf8Ptr());
     }
 
-    void setFullscreenWindow(Vec2U fullScreenResolution) override {
+    void setFullscreenWindow(Vec2U fullScreenResolution) override 
+    {
+      if (parent->m_windowMode == WindowMode::Maximized && STAR_SYSTEM_MACOS)
+        return parent->m_application->windowChanged(WindowMode::Fullscreen, parent->m_windowSize);
+
       if (parent->m_windowMode != WindowMode::Fullscreen || parent->m_windowSize != fullScreenResolution) {
         SDL_DisplayMode requestedDisplayMode = {SDL_PIXELFORMAT_RGB888, (int)fullScreenResolution[0], (int)fullScreenResolution[1], 0, 0};
         int currentDisplayIndex = SDL_GetWindowDisplayIndex(parent->m_sdlWindow);

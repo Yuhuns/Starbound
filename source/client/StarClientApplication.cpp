@@ -242,6 +242,21 @@ void ClientApplication::renderInit(RendererPtr renderer) {
 
 void ClientApplication::windowChanged(WindowMode windowMode, Vec2U screenSize) {
   auto config = m_root->configuration();
+
+  // Can't go fullscreen on Mac OS X when the window is maximized
+  if (config->get("maximized").toBool() == true && STAR_SYSTEM_MACOS)
+  {
+    if (windowMode == WindowMode::Fullscreen)
+    {
+      if (m_state != MainAppState::Error)
+        changeState(MainAppState::Error);
+      config->set("fullscreen", false);
+      if (m_errorScreen)
+        return m_errorScreen->setMessage("Fullscreen mode is not supported when the window is maximized on Mac OS X");
+    }
+    else
+      config->set("maximized", false);
+  }
   if (windowMode == WindowMode::Fullscreen) {
     config->set("fullscreenResolution", jsonFromVec2U(screenSize));
     config->set("fullscreen", true);
