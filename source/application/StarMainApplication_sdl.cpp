@@ -428,8 +428,10 @@ private:
 
     void setFullscreenWindow(Vec2U fullScreenResolution) override 
     {
-      if (parent->m_windowMode == WindowMode::Maximized && STAR_SYSTEM_MACOS)
+      #ifdef STAR_SYSTEM_MACOS
+      if (parent->m_windowMode == WindowMode::Maximized)
         return parent->m_application->windowChanged(WindowMode::Fullscreen, parent->m_windowSize);
+      #endif
 
       if (parent->m_windowMode != WindowMode::Fullscreen || parent->m_windowSize != fullScreenResolution) {
         SDL_DisplayMode requestedDisplayMode = {SDL_PIXELFORMAT_RGB888, (int)fullScreenResolution[0], (int)fullScreenResolution[1], 0, 0};
