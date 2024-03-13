@@ -41,8 +41,9 @@ Json const AdditionalDefaultConfiguration = Json::parseJson(R"JSON(
       "windowedResolution" : [1000, 600],
       "fullscreenResolution" : [1920, 1080],
       "fullscreen" : false,
+      "fpsUpdateRate" : 60,
       "borderless" : false,
-      "maximized" : true,
+      "maximized" : false,
       "zoomLevel" : 3.0,
       "speechBubbles" : true,
 
