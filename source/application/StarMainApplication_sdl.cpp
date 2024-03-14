@@ -595,6 +595,8 @@ private:
         if (event.window.event == SDL_WINDOWEVENT_MAXIMIZED || event.window.event == SDL_WINDOWEVENT_RESTORED) {
           auto windowFlags = SDL_GetWindowFlags(m_sdlWindow);
 
+          Logger::info("Window event %u", (Uint8)event.window.event);
+
           if (windowFlags & SDL_WINDOW_MAXIMIZED) {
             m_windowMode = WindowMode::Maximized;
           } else if (windowFlags & SDL_WINDOW_FULLSCREEN || windowFlags & SDL_WINDOW_FULLSCREEN_DESKTOP) {

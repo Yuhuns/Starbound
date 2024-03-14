@@ -454,16 +454,18 @@ if(STAR_BUILD_GUI)
   include_directories(SYSTEM ${GLEW_INCLUDE_DIR} ${SDL2_INCLUDE_DIR})
   set(STAR_EXT_GUI_LIBS ${STAR_EXT_GUI_LIBS} ${OPENGL_LIBRARY} ${GLEW_LIBRARY})
 
+  if(STAR_SYSTEM_MACOS)
+    set(STAR_EXT_GUI_LIBS ${STAR_EXT_GUI_LIBS} "-framework CoreAudio")
+  endif()
+
   if(STAR_ENABLE_STEAM_INTEGRATION)
     find_package(SteamApi REQUIRED)
-
     include_directories(SYSTEM ${STEAM_API_INCLUDE_DIR})
     set(STAR_EXT_GUI_LIBS ${STAR_EXT_GUI_LIBS} ${STEAM_API_LIBRARY})
   endif()
 
   if(STAR_ENABLE_DISCORD_INTEGRATION)
     find_package(DiscordApi REQUIRED)
-
     include_directories(SYSTEM ${DISCORD_API_INCLUDE_DIR})
     set(STAR_EXT_GUI_LIBS ${STAR_EXT_GUI_LIBS} ${DISCORD_API_LIBRARY})
   endif()

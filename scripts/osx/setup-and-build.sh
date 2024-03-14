@@ -15,15 +15,15 @@ if [ "$1" == "build" ]; then
   cd build
 
   echo "-- Checking if brew is installed --"
-  if ! command -v brew &> /dev/null; then
+  if ! command -v brew; then
     echo "-- Brew is not installed --"
     echo "-- Installing brew --"
     /bin/bash -c "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/HEAD/install.sh)"
   fi
 
   echo "-- Updating brew --"
-  if brew update &> /dev/null; then
-    if brew upgrade &> /dev/null; then
+  if brew update; then
+    if brew upgrade; then
       echo "-- Brew updated --"
     else
       echo "-- Brew update failed --"
@@ -31,37 +31,16 @@ if [ "$1" == "build" ]; then
   fi
 
   echo "-- Checking if dependencies are installed --"
-  if ! brew list cmake &> /dev/null; then
-    echo "-- Installing cmake --"
-    brew install cmake
-  elif ! brew list qt@5 &> /dev/null; then
-    echo "-- Installing qt@5 --"
-    brew install qt@5
-  elif ! brew list ninja &> /dev/null; then
-    echo "-- Installing ninja --"
-    brew install ninja
-  elif ! brew list jemalloc &> /dev/null; then
-    echo "-- Installing jemalloc --"
-    brew install jemalloc
-  elif ! brew list sdl2 &> /dev/null; then
-    echo "-- Installing sdl2 --"
-    brew install sdl2
-  elif ! brew list glew &> /dev/null; then
-    echo "-- Installing glew --"
-    brew install glew
-  elif ! brew list libvorbis &> /dev/null; then
-    echo "-- Installing libvorbis --"
-    brew install libvorbis
-  elif ! brew list lzlib &> /dev/null; then
-    echo "-- Installing lzlib --"
-    brew install lzlib
-  elif ! brew list libpng &> /dev/null; then
-    echo "-- Installing libpng --"
-    brew install libpng
-  elif ! brew list freetype &> /dev/null; then
-    echo "-- Installing freetype --"
-    brew install freetype
-  fi
+  dependencies=(cmake qt@5 libogg ninja jemalloc sdl2 glew libvorbis lzlib libpng freetype)
+  for dependency in "${dependencies[@]}"; do
+    if ! brew ls --version $dependency; then
+      echo "-- $dependency is not installed --"
+      if ! brew install $dependency; then
+        echo "-- $dependency installation failed --"
+        exit 1
+      fi
+    fi
+  done
   echo "-- Checking dependencies done --"
 
   QT5_INSTALL_PATH=/opt/homebrew/Cellar/qt@5/5.15.12_1
@@ -117,7 +96,7 @@ if [ "$1" == "build" ]; then
       ;;
     3)
       export CMAKE_BUILD_TYPE=RelWithDebInfo
-      export JE_MALLOC=ON
+      export JE_MALLOC=OFF
       export COMPILE_COMMAND=ON
       ;;
     4)
@@ -133,16 +112,18 @@ if [ "$1" == "build" ]; then
 
   echo "-- Building Starbound --"
 
+  # DCMAKE FIND FRAMEWORK=LAST is used to fix the issue with finding the correct framework (libpng 1.4.12 instead of 1.6.37)
   CC=clang CXX=clang++ cmake \
     -DCMAKE_CXX_STANDARD=17 \
     -DCMAKE_OSX_ARCHITECTURES=$CMAKE_OSX_ARCHITECTURES \
     -DCMAKE_EXPORT_COMPILE_COMMANDS=$COMPILE_COMMAND \
     -DCMAKE_BUILD_TYPE=$CMAKE_BUILD_TYPE \
     -DSTAR_BUILD_QT_TOOLS=$BUILD_QT_TOOLS \
-    -DSTAR_USE_JEMALLOC=$COMPILE_COMMAND \
+    -DSTAR_USE_JEMALLOC=$JE_MALLOC \
     -DSTAR_ENABLE_STATIC_LIBGCC_LIBSTDCXX=$STATIC \
     -DSTAR_ENABLE_STEAM_INTEGRATION=ON \
     -DSTAR_ENABLE_DISCORD_INTEGRATION=ON \
+    -DCMAKE_FIND_FRAMEWORK=LAST \
     -DCMAKE_INCLUDE_PATH=$CMAKE_ARCH_INCLUDE \
     -DCMAKE_LIBRARY_PATH=$CMAKE_ARCH_LIB \
     ../source
@@ -160,9 +141,9 @@ if [ "$1" == "build" ]; then
   cp $CMAKE_ARCH_LIB/libdiscord_game_sdk.dylib .
   cp $CMAKE_ARCH_LIB/discord_game_sdk.dylib .
 
-echo "-- Building app --"
-make -j$(sysctl -n hw.logicalcpu) -C../build || echo "build failed" || exit 1
-cd ..
+  echo "-- Building app --"
+  make -j$(sysctl -n hw.logicalcpu) -C../build || echo "build failed" || exit 1
+  cd ..
 fi
 
 echo "-- Making app bundle --"
