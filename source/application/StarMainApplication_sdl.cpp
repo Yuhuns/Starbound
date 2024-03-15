@@ -428,11 +428,8 @@ private:
 
     void setFullscreenWindow(Vec2U fullScreenResolution) override 
     {
-      #ifdef STAR_SYSTEM_MACOS
-      if (parent->m_windowMode == WindowMode::Maximized)
-        return parent->m_application->windowChanged(WindowMode::Fullscreen, parent->m_windowSize);
-      #endif
-
+      if (parent->m_isMacOSFullscreen)
+        return Logger::warn("Ignoring setFullscreenWindow call, already in fullscreen mode (Prevent: NSWindowStyleMaskFullScreen cleared on a window outside of a full screen transition.)");
       if (parent->m_windowMode != WindowMode::Fullscreen || parent->m_windowSize != fullScreenResolution) {
         SDL_DisplayMode requestedDisplayMode = {SDL_PIXELFORMAT_RGB888, (int)fullScreenResolution[0], (int)fullScreenResolution[1], 0, 0};
         int currentDisplayIndex = SDL_GetWindowDisplayIndex(parent->m_sdlWindow);
@@ -458,7 +455,7 @@ private:
           parent->m_windowRate = actualDisplayMode.refresh_rate;
 
           // call these manually since no SDL_WindowEvent is triggered when changing between fullscreen resolutions for some reason
-          parent->m_renderer->setScreenSize(parent->m_windowSize);
+          //parent->m_renderer->setScreenSize(parent->m_windowSize);
           parent->m_application->windowChanged(parent->m_windowMode, parent->m_windowSize);
         } else {
           Logger::error("Couldn't get window display mode!");
@@ -595,8 +592,6 @@ private:
         if (event.window.event == SDL_WINDOWEVENT_MAXIMIZED || event.window.event == SDL_WINDOWEVENT_RESTORED) {
           auto windowFlags = SDL_GetWindowFlags(m_sdlWindow);
 
-          Logger::info("Window event %u", (Uint8)event.window.event);
-
           if (windowFlags & SDL_WINDOW_MAXIMIZED) {
             m_windowMode = WindowMode::Maximized;
           } else if (windowFlags & SDL_WINDOW_FULLSCREEN || windowFlags & SDL_WINDOW_FULLSCREEN_DESKTOP) {
@@ -608,8 +603,22 @@ private:
 
           m_application->windowChanged(m_windowMode, m_windowSize);
 
-        } else if (event.window.event == SDL_WINDOWEVENT_RESIZED || event.window.event == SDL_WINDOWEVENT_SIZE_CHANGED) {
-          m_windowSize = Vec2U(event.window.data1, event.window.data2);
+        } 
+        else if (event.window.event == SDL_WINDOWEVENT_RESIZED || event.window.event == SDL_WINDOWEVENT_SIZE_CHANGED) 
+        {
+          auto W = event.window.data1;
+          auto H = event.window.data2;
+          #if defined(STAR_SYSTEM_MACOS)
+          SDL_DisplayMode DM;
+          if (SDL_GetWindowDisplayMode(m_sdlWindow, &DM) == 0)
+          {
+            if (DM.w == W && DM.h == H)
+              m_isMacOSFullscreen = true;
+            else
+              m_isMacOSFullscreen = false;
+          }
+          #endif
+          m_windowSize = Vec2U(W, H);
           m_renderer->setScreenSize(m_windowSize);
           m_application->windowChanged(m_windowMode, m_windowSize);
         }
@@ -701,6 +710,7 @@ private:
   bool m_acceptingTextInput = false;
   bool m_audioEnabled = false;
   bool m_quitRequested = false;
+  bool m_isMacOSFullscreen = false;
 
   SDL_AudioDeviceID m_audioDeviceID = 0;
   
