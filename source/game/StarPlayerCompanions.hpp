@@ -1,5 +1,4 @@
-#ifndef STAR_PLAYER_COMPANIONS_HPP
-#define STAR_PLAYER_COMPANIONS_HPP
+#pragma once
 
 #include "StarAiTypes.hpp"
 #include "StarUuid.hpp"
@@ -63,4 +62,3 @@ private:
 
 }
 
-#endif

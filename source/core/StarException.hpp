@@ -1,5 +1,4 @@
-#ifndef STAR_EXCEPTION_HPP
-#define STAR_EXCEPTION_HPP
+#pragma once
 
 #include "StarFormat.hpp"
 
@@ -97,4 +96,3 @@ StarException StarException::format(char const* fmt, Args const&... args) {
 
 }
 
-#endif

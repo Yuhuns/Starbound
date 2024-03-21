@@ -1,5 +1,4 @@
-#ifndef STAR_LARGE_CHAR_PLATE_WIDGET_HPP
-#define STAR_LARGE_CHAR_PLATE_WIDGET_HPP
+#pragma once
 
 #include "StarWidget.hpp"
 #include "StarButtonWidget.hpp"
@@ -61,4 +60,3 @@ private:
 
 }
 
-#endif

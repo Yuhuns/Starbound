@@ -1,5 +1,4 @@
-#ifndef STAR_TENANT_DATABASE_HPP
-#define STAR_TENANT_DATABASE_HPP
+#pragma once
 
 #include "StarRoot.hpp"
 #include "StarAssets.hpp"
@@ -72,4 +71,3 @@ private:
 
 }
 
-#endif

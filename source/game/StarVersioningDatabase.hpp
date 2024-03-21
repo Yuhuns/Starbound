@@ -1,5 +1,4 @@
-#ifndef STAR_VERSIONING_DATABASE_HPP
-#define STAR_VERSIONING_DATABASE_HPP
+#pragma once
 
 #include "StarJson.hpp"
 #include "StarDataStream.hpp"
@@ -84,4 +83,3 @@ private:
 
 }
 
-#endif

@@ -1,5 +1,4 @@
-#ifndef STAR_SMALL_VECTOR_HPP
-#define STAR_SMALL_VECTOR_HPP
+#pragma once
 
 #include "StarAlgorithm.hpp"
 
@@ -444,4 +443,3 @@ bool SmallVector<Element, MaxStackSize>::isHeapAllocated() const {
 
 }
 
-#endif

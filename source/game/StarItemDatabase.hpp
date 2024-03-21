@@ -1,5 +1,4 @@
-#ifndef STAR_ITEM_DATABASE_HPP
-#define STAR_ITEM_DATABASE_HPP
+#pragma once
 
 #include "StarThread.hpp"
 #include "StarItemRecipe.hpp"
@@ -202,4 +201,3 @@ bool ItemDatabase::diskLoad(Json const& diskStore, shared_ptr<ItemT>& itemPtr) c
 }
 }
 
-#endif

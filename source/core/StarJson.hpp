@@ -1,5 +1,4 @@
-#ifndef STAR_JSON_HPP
-#define STAR_JSON_HPP
+#pragma once
 
 #include "StarDataStream.hpp"
 #include "StarVariant.hpp"
@@ -355,4 +354,3 @@ Json jsonMergeQueryDef(String const& key, Json def, Json const& first, T const&.
 
 }
 
-#endif

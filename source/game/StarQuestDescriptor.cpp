@@ -35,6 +35,7 @@ bool QuestNpcType::operator==(QuestNpcType const& rhs) const {
 }
 
 bool QuestCoordinate::operator==(QuestCoordinate const& rhs) const {
+  _unused(rhs);
   return coordinate == coordinate;
 }
 

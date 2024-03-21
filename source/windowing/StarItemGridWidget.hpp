@@ -1,5 +1,4 @@
-#ifndef STAR_ITEMGRID_WIDGET_HPP
-#define STAR_ITEMGRID_WIDGET_HPP
+#pragma once
 
 #include "StarItemBag.hpp"
 #include "StarWidget.hpp"
@@ -98,4 +97,3 @@ private:
 
 }
 
-#endif

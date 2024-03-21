@@ -1,5 +1,4 @@
-#ifndef STAR_LIQUID_TYPES_HPP
-#define STAR_LIQUID_TYPES_HPP
+#pragma once
 
 #include "StarMathCommon.hpp"
 
@@ -56,4 +55,3 @@ inline LiquidLevel LiquidNetUpdate::liquidLevel() const {
 
 }
 
-#endif

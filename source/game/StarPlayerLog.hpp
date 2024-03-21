@@ -1,5 +1,4 @@
-#ifndef STAR_PLAYER_LOG_HPP
-#define STAR_PLAYER_LOG_HPP
+#pragma once
 
 #include "StarSet.hpp"
 #include "StarJson.hpp"
@@ -54,4 +53,3 @@ private:
 
 }
 
-#endif

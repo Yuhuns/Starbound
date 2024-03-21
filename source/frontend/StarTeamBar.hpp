@@ -1,5 +1,4 @@
-#ifndef STAR_TEAMBAR_HPP
-#define STAR_TEAMBAR_HPP
+#pragma once
 
 #include "StarPane.hpp"
 #include "StarUuid.hpp"
@@ -112,4 +111,3 @@ private:
 
 }
 
-#endif

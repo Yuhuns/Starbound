@@ -1,5 +1,4 @@
-#ifndef PLAYER_TYPES_HPP
-#define PLAYER_TYPES_HPP
+#pragma once
 
 #include "StarJson.hpp"
 #include "StarBiMap.hpp"
@@ -58,4 +57,3 @@ DataStream& operator<<(DataStream& ds, ShipUpgrades const& upgrades);
 
 }
 
-#endif

@@ -1,5 +1,4 @@
-#ifndef STAR_MIXER_HPP
-#define STAR_MIXER_HPP
+#pragma once
 
 #include "StarAudio.hpp"
 #include "StarThread.hpp"
@@ -164,4 +163,3 @@ private:
 
 }
 
-#endif

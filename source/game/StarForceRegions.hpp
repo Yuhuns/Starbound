@@ -1,5 +1,4 @@
-#ifndef STAR_FORCE_REGIONS_HPP
-#define STAR_FORCE_REGIONS_HPP
+#pragma once
 
 #include "StarPoly.hpp"
 #include "StarVariant.hpp"
@@ -92,4 +91,3 @@ PhysicsForceRegion jsonToPhysicsForceRegion(Json const& json);
 
 }
 
-#endif

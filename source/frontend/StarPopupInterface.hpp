@@ -1,5 +1,4 @@
-#ifndef STAR_POPUP_INTERFACE_HPP
-#define STAR_POPUP_INTERFACE_HPP
+#pragma once
 
 #include "StarPane.hpp"
 
@@ -19,4 +18,3 @@ private:
 
 }
 
-#endif

@@ -1,5 +1,4 @@
-#ifndef STAR_INSPECTABLE_ENTITY_HPP
-#define STAR_INSPECTABLE_ENTITY_HPP
+#pragma once
 
 #include "StarTileEntity.hpp"
 
@@ -34,4 +33,3 @@ inline Maybe<String> InspectableEntity::inspectionDescription(String const&) con
 
 }
 
-#endif

@@ -1,5 +1,4 @@
-#ifndef STAR_STORED_FUNCTIONS_HPP
-#define STAR_STORED_FUNCTIONS_HPP
+#pragma once
 
 #include "StarParametricFunction.hpp"
 #include "StarJson.hpp"
@@ -98,4 +97,3 @@ private:
 
 }
 
-#endif

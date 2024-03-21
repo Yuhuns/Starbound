@@ -1,5 +1,4 @@
-#ifndef STAR_DIRECTORY_ASSET_SOURCE_HPP
-#define STAR_DIRECTORY_ASSET_SOURCE_HPP
+#pragma once
 
 #include "StarAssetSource.hpp"
 #include "StarString.hpp"
@@ -38,4 +37,3 @@ private:
 
 }
 
-#endif

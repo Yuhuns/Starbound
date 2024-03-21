@@ -1,5 +1,4 @@
-#ifndef STAR_WARPING_HPP
-#define STAR_WARPING_HPP
+#pragma once
 
 #include "StarStrongTypedef.hpp"
 #include "StarUuid.hpp"
@@ -88,4 +87,3 @@ DataStream& operator<<(DataStream& ds, WarpToWorld const& warpToWorld);
 
 }
 
-#endif

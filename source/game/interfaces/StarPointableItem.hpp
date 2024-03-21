@@ -1,5 +1,4 @@
-#ifndef STAR_POINTABLE_ITEM_HPP
-#define STAR_POINTABLE_ITEM_HPP
+#pragma once
 
 #include "StarGameTypes.hpp"
 #include "StarDrawable.hpp"
@@ -19,4 +18,3 @@ public:
 
 }
 
-#endif

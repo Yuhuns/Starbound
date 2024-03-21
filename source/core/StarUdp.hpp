@@ -1,5 +1,4 @@
-#ifndef STAR_UDP_HPP
-#define STAR_UDP_HPP
+#pragma once
 
 #include "StarSocket.hpp"
 
@@ -38,4 +37,3 @@ private:
 
 }
 
-#endif

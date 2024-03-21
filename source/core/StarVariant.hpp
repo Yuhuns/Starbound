@@ -1,5 +1,4 @@
-#ifndef STAR_VARIANT_HPP
-#define STAR_VARIANT_HPP
+#pragma once
 
 #include <type_traits>
 #include <utility>
@@ -924,4 +923,3 @@ void MVariant<Types...>::ConstRefCaller<Function>::operator()(T const& t) {
 
 }
 
-#endif

@@ -4,7 +4,7 @@ project(starbound)
 
 set(CMAKE_MODULE_PATH ${PROJECT_SOURCE_DIR}/../cmake)
 
-set(CMAKE_CONFIGURATION_TYPES Debug RelWithAsserts RelWithDebInfo Release)
+set(CMAKE_CONFIGURATION_TYPES Release Debug RelWithAsserts RelWithDebInfo)
 set(CMAKE_EXE_LINKER_FLAGS_RELWITHASSERTS "" CACHE STRING "" FORCE)
 # Update the docstring on CMAKE_BUILD_TYPE to show what options we actually
 # allow
@@ -136,7 +136,7 @@ if(DEFINED STAR_ENABLE_STEAM_INTEGRATION)
 endif()
 
 if(DEFINED STAR_ENABLE_DISCORD_INTEGRATION)
-  message(STATUS "Using Discrod platform services: ${STAR_ENABLE_DISCORD_INTEGRATION}")
+  message(STATUS "Using Discord platform services: ${STAR_ENABLE_DISCORD_INTEGRATION}")
 endif()
 
 message(STATUS "Using Lua API checks: ${STAR_LUA_APICHECK}")
@@ -185,6 +185,8 @@ elseif(STAR_COMPILER STREQUAL "clang")
   set_flag(STAR_COMPILER_CLANG)
 elseif(STAR_COMPILER STREQUAL "msvc")
   set_flag(STAR_COMPILER_MSVC)
+elseif(STAR_COMPILER STREQUAL "appleclang")
+  set_flag(STAR_COMPILER_APPLECLANG)
 endif()
 
 if(STAR_LUA_APICHECK)
@@ -217,7 +219,7 @@ endif()
 
 if(STAR_COMPILER_GNU)
   set(CMAKE_C_FLAGS "${CMAKE_C_FLAGS} -Wall -Wextra -Wuninitialized -Wunreachable-code -Wformat -no-pie")
-  set(CMAKE_CXX_FLAGS "${CMAKE_CXX_FLAGS} -std=c++17 -Wall -Wextra -Wuninitialized -Wunreachable-code -Wformat -no-pie")
+  set(CMAKE_CXX_FLAGS "${CMAKE_CXX_FLAGS} -std=c++17 -Wall -Wextra -Wno-shorten-64-to-32 -Wno-deprecated -Wuninitialized -Wunreachable-code -Wformat -no-pie")
 
   if(STAR_SYSTEM_FAMILY_WINDOWS)
     set(CMAKE_C_FLAGS "${CMAKE_C_FLAGS} -mthreads")
@@ -246,15 +248,12 @@ if(STAR_COMPILER_GNU)
   set(CMAKE_C_FLAGS_RELWITHDEBINFO "-g -DNDEBUG -Ofast")
   set(CMAKE_CXX_FLAGS_RELWITHDEBINFO "-g -DNDEBUG -Ofast")
 
-  if (STAR_SYSTEM_MACOS)
-    set(CMAKE_XCODE_ATTRIBUTE_DEBUG_INFORMATION_FORMAT "dwarf-with-dsym")
-  endif()
   set(CMAKE_C_FLAGS_RELEASE "-DNDEBUG -Ofast")
   set(CMAKE_CXX_FLAGS_RELEASE "-DNDEBUG -Ofast")
 
 elseif(STAR_COMPILER_CLANG)
   set(CMAKE_C_FLAGS "${CMAKE_C_FLAGS} -Wall -Wextra -Wuninitialized -Wno-parentheses-equality -Wno-deprecated-declarations")
-  set(CMAKE_CXX_FLAGS "${CMAKE_CXX_FLAGS} -std=c++17 -Wall -Wextra -Wuninitialized -Wno-parentheses-equality -Wno-deprecated-declarations")
+  set(CMAKE_CXX_FLAGS "${CMAKE_CXX_FLAGS} -std=c++17 -Wall -Wextra -Wno-shorten-64-to-32-Wuninitialized -Wno-parentheses-equality -Wno-deprecated-declarations")
 
   if(STAR_SYSTEM_MACOS)
     set(CMAKE_CXX_FLAGS "${CMAKE_CXX_FLAGS} -stdlib=libc++")
@@ -278,9 +277,36 @@ elseif(STAR_COMPILER_CLANG)
   set(CMAKE_C_FLAGS_RELWITHDEBINFO "-g -DNDEBUG -Ofast")
   set(CMAKE_CXX_FLAGS_RELWITHDEBINFO "-g -DNDEBUG -Ofast")
 
-  if (STAR_SYSTEM_MACOS)
-    set(CMAKE_XCODE_ATTRIBUTE_DEBUG_INFORMATION_FORMAT "dwarf-with-dsym")
+  set(CMAKE_C_FLAGS_RELEASE "-DNDEBUG -Ofast")
+  set(CMAKE_CXX_FLAGS_RELEASE "-DNDEBUG -Ofast")
+
+elseif(STAR_COMPILER_APPLECLANG AND CMAKE_GENERATOR STREQUAL "Xcode" OR CMAKE_GENERATOR STREQUAL "Unix Makefiles")
+  message(STATUS "Using Apple Clang")
+  set(CMAKE_C_FLAGS "${CMAKE_C_FLAGS} -Wall -Wextra -Wuninitialized -Wno-parentheses-equality -Wno-deprecated-declarations")
+  set(CMAKE_CXX_FLAGS "${CMAKE_CXX_FLAGS} -std=c++17 -Wall -Wextra -Wno-shorten-64-to-32 -Wuninitialized -Wno-parentheses-equality -Wno-deprecated-declarations")
+
+  if(STAR_SYSTEM_MACOS)
+    set(CMAKE_CXX_FLAGS "${CMAKE_CXX_FLAGS} -stdlib=libc++")
+    set(CMAKE_SHARED_LINKER_FLAGS "${CMAKE_SHARED_LINKER_FLAGS} -Wl,-export_dynamic")
+    set(CMAKE_EXE_LINKER_FLAGS "${CMAKE_EXE_LINKER_FLAGS} -Wl,-export_dynamic")
+    set(CMAKE_XCODE_ATTRIBUTE_CLANG_CXX_LANGUAGE_STANDARD "c++17")
+    set(CMAKE_XCODE_ATTRIBUTE_CLANG_CXX_LIBRARY "libc++")
+  elseif()
+    set(CMAKE_C_FLAGS "${CMAKE_C_FLAGS} -pthread -D_REENTRANT")
+    set(CMAKE_CXX_FLAGS "${CMAKE_CXX_FLAGS} -pthread -D_REENTRANT")
+    set(CMAKE_SHARED_LINKER_FLAGS "${CMAKE_SHARED_LINKER_FLAGS} -Wl,-export_dynamic")
+    set(CMAKE_EXE_LINKER_FLAGS "${CMAKE_EXE_LINKER_FLAGS} -Wl,-export_dynamic")
   endif()
+
+  set(CMAKE_C_FLAGS_DEBUG "-g -Og")
+  set(CMAKE_CXX_FLAGS_DEBUG "-g -Og")
+
+  set(CMAKE_C_FLAGS_RELWITHASSERTS "-g -Ofast")
+  set(CMAKE_CXX_FLAGS_RELWITHASSERTS "-g -Ofast")
+
+  set(CMAKE_C_FLAGS_RELWITHDEBINFO "-g -DNDEBUG -Ofast")
+  set(CMAKE_CXX_FLAGS_RELWITHDEBINFO "-g -DNDEBUG -Ofast")
+
   set(CMAKE_C_FLAGS_RELEASE "-DNDEBUG -Ofast")
   set(CMAKE_CXX_FLAGS_RELEASE "-DNDEBUG -Ofast")
 
@@ -362,10 +388,6 @@ else()
   set(CMAKE_C_FLAGS_RELWITHDEBINFO "-DNDEBUG -g3 -O2")
   set(CMAKE_CXX_FLAGS_RELWITHDEBINFO "-DNDEBUG -g3 -O2")
 
-  if (STAR_SYSTEM_MACOS)
-    set(CMAKE_XCODE_ATTRIBUTE_DEBUG_INFORMATION_FORMAT "dwarf-with-dsym")
-  endif()
-
   set(CMAKE_C_FLAGS_RELEASE "-DNDEBUG -O2")
   set(CMAKE_CXX_FLAGS_RELEASE "-DNDEBUG -O2")
 
@@ -404,12 +426,6 @@ elseif(STAR_SYSTEM_LINUX)
 elseif(STAR_SYSTEM_FREEBSD)
   set(CMAKE_C_STANDARD_LIBRARIES "${CMAKE_C_STANDARD_LIBRARIES} -lpthread -lrt")
   set(CMAKE_CXX_STANDARD_LIBRARIES "${CMAKE_CXX_STANDARD_LIBRARIES} -lpthread -lrt")
-
-# Fix for macos warning: no platform load command found in (assuming : macos) when compiling on arm64 for x86_64
-elseif(STAR_SYSTEM_MACOS)
-  set(CMAKE_C_STANDARD_LIBRARIES "${CMAKE_C_STANDARD_LIBRARIES} -lpthread -ldl -ld_classic")
-  set(CMAKE_CXX_STANDARD_LIBRARIES "${CMAKE_CXX_STANDARD_LIBRARIES} -lpthread -ldl -ld_classic")
-
 endif()
 
 # Find all required external libraries, based on build settings...
@@ -428,30 +444,31 @@ find_package(Freetype REQUIRED)
 find_package(OggVorbis REQUIRED)
 
 include_directories(SYSTEM
-    ${ZLIB_INCLUDE_DIR}
-    ${PNG_INCLUDE_DIR}
     ${FREETYPE_INCLUDE_DIRS}
     ${OGGVORBIS_INCLUDE_DIR}
-  )
+)
 
 set(STAR_EXT_LIBS ${STAR_EXT_LIBS}
+    ZLIB::ZLIB
+    PNG::PNG
+    $<IF:$<TARGET_EXISTS:Freetype::Freetype>,Freetype::Freetype,freetype>
     ${VORBISFILE_LIBRARY}
     ${VORBIS_LIBRARY}
     ${OGG_LIBRARY}
-    ${FREETYPE_LIBRARY}
-    ${PNG_LIBRARY}
-    ${ZLIB_LIBRARY}
-  )
+)
 
 if(STAR_BUILD_GUI)
-  find_package(SDL2 REQUIRED)
-  include_directories(SYSTEM ${SDL2_INCLUDE_DIR})
-  set(STAR_EXT_GUI_LIBS ${SDL2_LIBRARY})
+  find_package(SDL2 CONFIG REQUIRED)
+
+  set(STAR_EXT_GUI_LIBS
+    $<TARGET_NAME_IF_EXISTS:SDL2::SDL2main>
+    $<IF:$<TARGET_EXISTS:SDL2::SDL2>,SDL2::SDL2,SDL2::SDL2-static>
+  )
 
   find_package(OpenGL REQUIRED)
   find_package(GLEW REQUIRED)
 
-  include_directories(SYSTEM ${GLEW_INCLUDE_DIR} ${SDL2_INCLUDE_DIR})
+  include_directories(SYSTEM ${GLEW_INCLUDE_DIR})
   set(STAR_EXT_GUI_LIBS ${STAR_EXT_GUI_LIBS} ${OPENGL_LIBRARY} ${GLEW_LIBRARY})
 
   if(STAR_SYSTEM_MACOS)

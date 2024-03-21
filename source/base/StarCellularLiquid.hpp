@@ -1,5 +1,4 @@
-#ifndef STAR_CELLULAR_LIQUID_HPP
-#define STAR_CELLULAR_LIQUID_HPP
+#pragma once
 
 #include "StarVariant.hpp"
 #include "StarRect.hpp"
@@ -655,4 +654,3 @@ void LiquidCellEngine<LiquidId>::transferLevel(
 
 }
 
-#endif

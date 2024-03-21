@@ -1,5 +1,4 @@
-#ifndef STAR_NET_ELEMENT_CONTAINERS_HPP
-#define STAR_NET_ELEMENT_CONTAINERS_HPP
+#pragma once
 
 #include "StarMap.hpp"
 #include "StarDataStreamExtra.hpp"
@@ -449,4 +448,3 @@ void NetElementMapWrapper<BaseMap>::applyChange(ElementChange change) {
 
 }
 
-#endif

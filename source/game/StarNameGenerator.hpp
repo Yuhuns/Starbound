@@ -1,5 +1,4 @@
-#ifndef STAR_NAME_GENERATOR_HPP
-#define STAR_NAME_GENERATOR_HPP
+#pragma once
 
 #include "StarJson.hpp"
 #include "StarRandom.hpp"
@@ -39,4 +38,3 @@ private:
 
 }
 
-#endif

@@ -1,5 +1,4 @@
-#ifndef STAR_STATUSPANE_HPP
-#define STAR_STATUSPANE_HPP
+#pragma once
 
 #include "StarPane.hpp"
 #include "StarMainInterfaceTypes.hpp"
@@ -38,4 +37,3 @@ private:
 
 }
 
-#endif

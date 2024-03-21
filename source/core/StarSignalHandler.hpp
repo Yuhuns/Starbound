@@ -1,5 +1,4 @@
-#ifndef STAR_SIGNAL_HANDLER_HPP
-#define STAR_SIGNAL_HANDLER_HPP
+#pragma once
 
 #include "StarException.hpp"
 
@@ -34,4 +33,3 @@ private:
 
 }
 
-#endif

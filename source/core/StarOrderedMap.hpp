@@ -1,5 +1,4 @@
-#ifndef STAR_ORDERED_MAP_HPP
-#define STAR_ORDERED_MAP_HPP
+#pragma once
 
 #include "StarMap.hpp"
 
@@ -654,4 +653,3 @@ std::ostream& operator<<(std::ostream& os, OrderedMapWrapper<Map, Key, Value, Al
 
 }
 
-#endif

@@ -1,5 +1,4 @@
-#ifndef STAR_INSPECTION_TOOL_HPP
-#define STAR_INSPECTION_TOOL_HPP
+#pragma once
 
 #include "StarItem.hpp"
 #include "StarPointableItem.hpp"
@@ -19,8 +18,8 @@ public:
 
   struct InspectionResult {
     String message;
-    Maybe<String> objectName;
-    Maybe<EntityId> entityId;
+    Maybe<String> objectName = {};
+    Maybe<EntityId> entityId = {};
   };
 
   InspectionTool(Json const& config, String const& directory, Json const& parameters = JsonObject());
@@ -71,4 +70,3 @@ private:
 
 }
 
-#endif

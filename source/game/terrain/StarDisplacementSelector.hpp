@@ -1,5 +1,4 @@
-#ifndef STAR_DISPLACEMENT_SELECTOR_HPP
-#define STAR_DISPLACEMENT_SELECTOR_HPP
+#pragma once
 
 #include "StarTerrainDatabase.hpp"
 #include "StarPerlin.hpp"
@@ -34,4 +33,3 @@ struct DisplacementSelector : TerrainSelector {
 
 }
 
-#endif

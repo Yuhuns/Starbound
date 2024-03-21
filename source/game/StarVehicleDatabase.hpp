@@ -1,5 +1,4 @@
-#ifndef STAR_VEHICLE_DATABASE_HPP
-#define STAR_VEHICLE_DATABASE_HPP
+#pragma once
 
 #include "StarJson.hpp"
 #include "StarVehicle.hpp"
@@ -26,4 +25,3 @@ private:
 
 }
 
-#endif

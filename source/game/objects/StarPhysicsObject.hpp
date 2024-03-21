@@ -1,5 +1,4 @@
-#ifndef STAR_PHYSICS_OBJECT_HPP
-#define STAR_PHYSICS_OBJECT_HPP
+#pragma once
 
 #include "StarObject.hpp"
 #include "StarPhysicsEntity.hpp"
@@ -46,4 +45,3 @@ private:
 
 }
 
-#endif

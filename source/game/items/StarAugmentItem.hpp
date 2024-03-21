@@ -1,5 +1,4 @@
-#ifndef STAR_AUGMENT_ITEM_HPP
-#define STAR_AUGMENT_ITEM_HPP
+#pragma once
 
 #include "StarItem.hpp"
 
@@ -24,4 +23,3 @@ public:
 
 }
 
-#endif

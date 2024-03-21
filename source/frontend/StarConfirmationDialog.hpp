@@ -1,5 +1,4 @@
-#ifndef STAR_CONFIRMATION_DIALOG_HPP
-#define STAR_CONFIRMATION_DIALOG_HPP
+#pragma once
 
 #include "StarPane.hpp"
 #include "StarRpcPromise.hpp"
@@ -35,4 +34,3 @@ private:
 
 }
 
-#endif

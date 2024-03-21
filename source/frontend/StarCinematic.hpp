@@ -1,5 +1,4 @@
-#ifndef STAR_CINEMATIC_HPP
-#define STAR_CINEMATIC_HPP
+#pragma once
 
 #include "StarTime.hpp"
 #include "StarRenderer.hpp"
@@ -140,4 +139,3 @@ private:
 
 }
 
-#endif

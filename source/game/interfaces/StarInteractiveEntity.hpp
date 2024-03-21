@@ -1,5 +1,4 @@
-#ifndef STAR_INTERACTIVE_ENTITY_HPP
-#define STAR_INTERACTIVE_ENTITY_HPP
+#pragma once
 
 #include "StarInteractionTypes.hpp"
 #include "StarEntity.hpp"
@@ -31,4 +30,3 @@ public:
 
 }
 
-#endif

@@ -1,5 +1,4 @@
-#ifndef STAR_PLANT_HPP
-#define STAR_PLANT_HPP
+#pragma once
 
 #include "StarSet.hpp"
 #include "StarNetElementSystem.hpp"
@@ -175,4 +174,3 @@ private:
 
 }
 
-#endif

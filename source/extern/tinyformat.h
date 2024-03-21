@@ -299,7 +299,7 @@ TINYFORMAT_DEFINE_FORMAT_TRUNCATED_CSTR(char)
 #undef TINYFORMAT_DEFINE_FORMAT_TRUNCATED_CSTR
 
 template<typename T>
-void spaceFillIfNotFinite(std::ostream& out, const T& value) { }
+void spaceFillIfNotFinite(std::ostream& out, const T& value) { _unused(out); _unused(value); }
 // TODO: type_traits would clearly be better here. Should consider moving all
 // these workarounds into a big pre-C++11 section.
 #define TINYFORMAT_SETFILL_NOT_FINITE_FLOATING(type)             \

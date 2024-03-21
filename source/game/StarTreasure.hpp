@@ -1,5 +1,4 @@
-#ifndef STAR_TREASURE_HPP
-#define STAR_TREASURE_HPP
+#pragma once
 
 #include "StarThread.hpp"
 #include "StarParametricFunction.hpp"
@@ -90,4 +89,3 @@ private:
 
 }
 
-#endif

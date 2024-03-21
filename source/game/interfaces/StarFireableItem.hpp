@@ -1,5 +1,4 @@
-#ifndef STAR_FIREABLE_ITEM_HPP
-#define STAR_FIREABLE_ITEM_HPP
+#pragma once
 
 #include "StarToolUserItem.hpp"
 #include "StarStatusEffectItem.hpp"
@@ -88,4 +87,3 @@ protected:
 
 }
 
-#endif

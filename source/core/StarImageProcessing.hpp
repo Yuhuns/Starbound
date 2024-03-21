@@ -1,5 +1,4 @@
-#ifndef STAR_IMAGE_PROCESSING_HPP
-#define STAR_IMAGE_PROCESSING_HPP
+#pragma once
 
 #include "StarList.hpp"
 #include "StarRect.hpp"
@@ -150,4 +149,3 @@ Image processImageOperations(List<ImageOperation> const& operations, Image input
 
 }
 
-#endif

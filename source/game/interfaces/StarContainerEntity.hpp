@@ -1,5 +1,4 @@
-#ifndef STAR_CONTAINER_ENTITY_HPP
-#define STAR_CONTAINER_ENTITY_HPP
+#pragma once
 
 #include "StarGameTypes.hpp"
 #include "StarTileEntity.hpp"
@@ -47,4 +46,3 @@ public:
 
 }
 
-#endif

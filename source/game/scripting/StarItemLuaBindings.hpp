@@ -1,5 +1,4 @@
-#ifndef STAR_ITEM_LUA_BINDINGS_HPP
-#define STAR_ITEM_LUA_BINDINGS_HPP
+#pragma once
 
 #include "StarLua.hpp"
 #include "StarVector.hpp"
@@ -42,4 +41,3 @@ namespace LuaBindings {
 }
 }
 
-#endif

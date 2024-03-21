@@ -1,5 +1,4 @@
-#ifndef STAR_ASSETS_HPP
-#define STAR_ASSETS_HPP
+#pragma once
 
 #include "StarJson.hpp"
 #include "StarOrderedMap.hpp"
@@ -377,4 +376,3 @@ private:
 
 }
 
-#endif

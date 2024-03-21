@@ -1,0 +1,92 @@
+name: macOS
+
+on:
+  push:
+    branches:
+      - "*"
+    tags:
+      - "*"
+
+  pull_request:
+    branches:
+      - "*"
+
+jobs:
+  build-intel:
+    name: macOS x86_64
+    runs-on: macos-13
+
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          submodules: 'recursive'
+
+      - name: Install Ninja
+        run: brew install ninja
+
+      - name: vcpkg
+        uses: lukka/run-vcpkg@v11
+        id: runvcpkg
+        with:
+          vcpkgJsonGlob: '**/source/vcpkg.json'
+          vcpkgConfigurationJsonGlob: '**/source/vcpkg-configuration.json'
+
+      - name: Run CMake
+        uses: lukka/run-cmake@v10
+        with:
+          cmakeListsTxtPath: '${{github.workspace}}/source/CMakeLists.txt'
+          configurePreset: 'macos-release'
+          buildPreset: 'macos-release'
+          testPreset: 'macos-release'
+
+      - name: Upload Artifacts
+        uses: actions/upload-artifact@v4
+        with:
+          name: macOS-Intel
+          path: |
+            dist/*
+            lib/osx/x64/*
+            lib/osx/libsteam_api.dylib
+            
+      - name: CHMOD Artificates
+        run: chmod 755 dist/*
+
+  build-arm:
+    name: macOS arm64 without app-builder
+    runs-on: macos-14
+
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          submodules: 'recursive'
+
+      - name: Install Ninja
+        run: brew install ninja
+
+      - name: vcpkg
+        uses: lukka/run-vcpkg@v11
+        id: runvcpkg
+        with:
+          vcpkgJsonGlob: '**/source/vcpkg.json'
+          vcpkgConfigurationJsonGlob: '**/source/vcpkg-configuration.json'
+
+      - name: Run CMake
+        uses: lukka/run-cmake@v10
+        with:
+          cmakeListsTxtPath: '${{ github.workspace }}/source/CMakeLists.txt'
+          configurePreset: 'macos-arm-release'
+          buildPreset: 'macos-arm-release'
+          testPreset: 'macos-arm-release'
+
+      - name: Upload Artifacts
+        uses: actions/upload-artifact@v4
+        with:
+          name: macOS-Silicon
+          path: |
+            dist/*
+            lib/osx/arm64/*
+            lib/osx/libsteam_api.dylib
+
+      - name: CHMOD Artificates
+        run: chmod 755 dist/*
+

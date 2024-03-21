@@ -1,8 +1,5 @@
 
-<h1><img src=https://images.weserv.nl/?url=https://github.com/rwf93/starbound/blob/master/logo.png?raw=true?v=4&h=24&w=24&fit=cover&mask=circle&maxage=7d>Starbound</h1>
-
-A somewhat comprehensive guide on how to build the game from source.  
-This might contain modifications to the source code that make it not interoperable with the base game.
+<h1><img src=https://images.weserv.nl/?url=https://github.com/rwf93/starbound/blob/master/logo.png?raw=true?v=4&h=24&w=24&fit=cover&mask=circle&maxage=7d> Starbound</h1>
 
 ## Build Instructions:
 ### Windows x86_64
@@ -24,10 +21,12 @@ Compile your game to share : ./scripts/windows/compile_game.bat
 Run : starbound.exe
 
 ### MACOS x86_64 (Intel/Universel) / MACOS arm64 (SILICON M1/M2/M3)
-Build : ./scripts/osx/setup-and-build.sh build
-Zip : ./scripts/osx/setup-and-build.sh zip (to share your app) !! warning !! You need to sign-it with codesign
-
-Run : ./dist/starbound or exec the Starbound.app in the dist folder.
+You need first : [vcpkg](https://github.com/microsoft/vcpkg)
+Install it with git clone in your HOME path.
+Use the scripts ./scripts/osx/app-builder all
+-> for simply execution.
+You can just build with the option cmake
+You can sign with the option sign
 
 ### Linux (x64 and ARM)
 Work in progress...

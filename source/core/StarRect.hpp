@@ -1,5 +1,4 @@
-#ifndef STAR_RECT_HPP
-#define STAR_RECT_HPP
+#pragma once
 
 #include "StarLine.hpp"
 #include "StarList.hpp"
@@ -52,6 +51,7 @@ public:
   Box();
   Box(Coord const& min, Coord const& max);
   Box(Box const& b);
+  Box& operator=(Box const& b);
 
   template <typename T2>
   explicit Box(Box<T2, N> const& b);
@@ -327,6 +327,13 @@ Box<T, N>::Box(Coord const& min, Coord const& max)
 template <typename T, size_t N>
 Box<T, N>::Box(Box const& b)
   : m_min(b.min()), m_max(b.max()) {}
+  
+template <typename T, size_t N>
+Box<T, N>& Box<T, N>::operator=(Box<T, N> const& b) {
+  m_min = b.m_min;
+  m_max = b.m_max;
+  return *this;
+}
 
 template <typename T, size_t N>
 template <typename T2>
@@ -1065,4 +1072,3 @@ auto Box<T, N>::nearestCoordTo(Coord const& c) const -> Coord {
 
 }
 
-#endif

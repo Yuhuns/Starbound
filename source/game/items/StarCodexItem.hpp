@@ -1,5 +1,4 @@
-#ifndef STAR_CODEX_ITEM_HPP
-#define STAR_CODEX_ITEM_HPP
+#pragma once
 
 #include "StarItem.hpp"
 #include "StarPlayerCodexes.hpp"
@@ -27,4 +26,3 @@ private:
 
 }
 
-#endif

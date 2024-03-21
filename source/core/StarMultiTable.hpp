@@ -1,5 +1,4 @@
-#ifndef STAR_MULTI_TABLE_HPP
-#define STAR_MULTI_TABLE_HPP
+#pragma once
 
 #include "StarMultiArrayInterpolator.hpp"
 
@@ -166,4 +165,3 @@ typedef MultiTable<double, double, 4> MultiTable4D;
 
 }
 
-#endif

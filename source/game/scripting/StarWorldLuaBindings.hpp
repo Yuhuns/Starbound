@@ -1,5 +1,4 @@
-#ifndef STAR_LUA_BINDINGS_HPP
-#define STAR_LUA_BINDINGS_HPP
+#pragma once
 
 #include "StarBiMap.hpp"
 #include "StarRect.hpp"
@@ -179,4 +178,3 @@ namespace LuaBindings {
 
 }
 
-#endif

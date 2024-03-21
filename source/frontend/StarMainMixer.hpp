@@ -1,5 +1,4 @@
-#ifndef STAR_MAIN_MIXER_HPP
-#define STAR_MAIN_MIXER_HPP
+#pragma once
 
 #include "StarMixer.hpp"
 #include "StarGameTypes.hpp"
@@ -31,4 +30,3 @@ private:
 
 }
 
-#endif

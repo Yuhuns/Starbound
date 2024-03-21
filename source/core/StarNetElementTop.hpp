@@ -1,5 +1,4 @@
-#ifndef STAR_NET_ELEMENT_TOP_HPP
-#define STAR_NET_ELEMENT_TOP_HPP
+#pragma once
 
 #include "StarNetElement.hpp"
 
@@ -79,4 +78,3 @@ void NetElementTop<BaseNetElement>::readNetState(ByteArray data, float interpola
 
 }
 
-#endif

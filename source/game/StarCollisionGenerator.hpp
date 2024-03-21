@@ -1,5 +1,4 @@
-#ifndef STAR_COLLISION_GENERATOR_HPP
-#define STAR_COLLISION_GENERATOR_HPP
+#pragma once
 
 #include "StarCollisionBlock.hpp"
 #include "StarMultiArray.hpp"
@@ -47,4 +46,3 @@ private:
 
 }
 
-#endif

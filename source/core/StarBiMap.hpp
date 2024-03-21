@@ -1,5 +1,4 @@
-#ifndef STAR_BI_MAP_HPP
-#define STAR_BI_MAP_HPP
+#pragma once
 
 #include "StarString.hpp"
 
@@ -416,4 +415,3 @@ bool BiMap<LeftT, RightT, LeftMapT, RightMapT>::operator==(BiMap const& m) const
 
 }
 
-#endif

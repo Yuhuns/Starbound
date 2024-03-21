@@ -1,5 +1,4 @@
-#ifndef STAR_FIREABLE_ITEM_LUA_BINDINGS_HPP
-#define STAR_FIREABLE_ITEM_LUA_BINDINGS_HPP
+#pragma once
 
 #include "StarLua.hpp"
 
@@ -30,4 +29,3 @@ namespace LuaBindings {
 }
 }
 
-#endif

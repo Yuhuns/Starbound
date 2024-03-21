@@ -1,5 +1,4 @@
-#ifndef STAR_STATISTICS_HPP
-#define STAR_STATISTICS_HPP
+#pragma once
 
 #include "StarVersioningDatabase.hpp"
 #include "StarStatisticsDatabase.hpp"
@@ -65,4 +64,3 @@ private:
 
 }
 
-#endif

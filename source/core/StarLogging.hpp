@@ -1,5 +1,4 @@
-#ifndef STAR_LOGGING_HPP
-#define STAR_LOGGING_HPP
+#pragma once
 
 #include "StarThread.hpp"
 #include "StarSet.hpp"
@@ -190,4 +189,3 @@ void LogMap::set(String const& key, T const& t) {
 
 }
 
-#endif

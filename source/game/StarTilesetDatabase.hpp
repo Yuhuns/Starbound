@@ -1,5 +1,4 @@
-#ifndef STAR_TILESET_DATABASE_HPP
-#define STAR_TILESET_DATABASE_HPP
+#pragma once
 
 #include "StarDungeonGenerator.hpp"
 #include "StarJson.hpp"
@@ -139,4 +138,3 @@ namespace Tiled {
 
 }
 
-#endif

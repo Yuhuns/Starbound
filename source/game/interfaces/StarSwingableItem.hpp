@@ -1,5 +1,4 @@
-#ifndef STAR_SWINGABLE_ITEM_HPP
-#define STAR_SWINGABLE_ITEM_HPP
+#pragma once
 
 #include "StarFireableItem.hpp"
 
@@ -33,4 +32,3 @@ protected:
 
 }
 
-#endif

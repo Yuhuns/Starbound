@@ -1,5 +1,4 @@
-#ifndef STAR_SLIDER_BAR_HPP
-#define STAR_SLIDER_BAR_HPP
+#pragma once
 #include "StarWidget.hpp"
 #include "StarButtonWidget.hpp"
 #include "StarImageWidget.hpp"
@@ -54,4 +53,3 @@ private:
 typedef shared_ptr<SliderBarWidget> SliderBarWidgetPtr;
 }
 
-#endif

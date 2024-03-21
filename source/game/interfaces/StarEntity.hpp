@@ -1,5 +1,4 @@
-#ifndef STAR_ENTITY_HPP
-#define STAR_ENTITY_HPP
+#pragma once
 
 #include "StarCasting.hpp"
 #include "StarDamage.hpp"
@@ -226,4 +225,3 @@ EntityFilter entityTypeFilter(function<bool(shared_ptr<EntityT> const&)> filter 
 }
 }
 
-#endif

@@ -1,5 +1,4 @@
-#ifndef STAR_OBJECT_HPP
-#define STAR_OBJECT_HPP
+#pragma once
 
 #include "StarPeriodic.hpp"
 #include "StarPeriodicFunction.hpp"
@@ -265,4 +264,3 @@ private:
 
 }
 
-#endif

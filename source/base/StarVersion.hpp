@@ -1,5 +1,4 @@
-#ifndef STAR_VERSION_HPP
-#define STAR_VERSION_HPP
+#pragma once
 
 #include "StarConfig.hpp"
 
@@ -13,4 +12,3 @@ typedef uint32_t VersionNumber;
 
 }
 
-#endif

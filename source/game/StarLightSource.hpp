@@ -1,5 +1,4 @@
-#ifndef STAR_LIGHT_SOURCE_HPP
-#define STAR_LIGHT_SOURCE_HPP
+#pragma once
 
 #include "StarVector.hpp"
 #include "StarDataStream.hpp"
@@ -28,4 +27,3 @@ DataStream& operator<<(DataStream& ds, LightSource const& lightSource);
 DataStream& operator>>(DataStream& ds, LightSource& lightSource);
 }
 
-#endif

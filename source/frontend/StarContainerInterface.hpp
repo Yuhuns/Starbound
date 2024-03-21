@@ -1,5 +1,4 @@
-#ifndef STAR_CONTAINER_INTERFACE_HPP
-#define STAR_CONTAINER_INTERFACE_HPP
+#pragma once
 
 #include "StarPane.hpp"
 #include "StarLuaComponents.hpp"
@@ -58,4 +57,3 @@ private:
 
 }
 
-#endif

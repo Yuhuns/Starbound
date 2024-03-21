@@ -1,5 +1,4 @@
-#ifndef STAR_WORLD_PARAMTERS_HPP
-#define STAR_WORLD_PARAMTERS_HPP
+#pragma once
 
 #include "StarGameTypes.hpp"
 #include "StarSkyTypes.hpp"
@@ -106,6 +105,7 @@ struct TerrestrialWorldParameters : VisitableWorldParameters {
   TerrestrialWorldParameters();
   TerrestrialWorldParameters(TerrestrialWorldParameters const& terrestrialWorldParameters);
   TerrestrialWorldParameters(Json const& store);
+  TerrestrialWorldParameters &operator=(TerrestrialWorldParameters const& terrestrialWorldParameters);
 
   virtual WorldParametersType type() const override;
 
@@ -187,4 +187,3 @@ FloatingDungeonWorldParametersPtr generateFloatingDungeonWorldParameters(String 
 
 }
 
-#endif

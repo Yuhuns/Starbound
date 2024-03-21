@@ -1,5 +1,4 @@
-#ifndef STAR_LINE_HPP
-#define STAR_LINE_HPP
+#pragma once
 
 #include "StarMatrix3.hpp"
 
@@ -286,4 +285,3 @@ struct hash<Line<T, N>> {
 
 }
 
-#endif

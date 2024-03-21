@@ -664,6 +664,7 @@ void ActorMovementController::controlFly(Vec2F const& velocity) {
 }
 
 Maybe<pair<Vec2F, bool>> ActorMovementController::pathMove(Vec2F const& position, bool run, Maybe<PlatformerAStar::Parameters> const& parameters) {
+    _unused(run);
   if (!m_pathController)
     m_pathController = make_shared<PathController>(world());
 
@@ -1450,6 +1451,9 @@ bool PathController::validateEdge(ActorMovementController& movementController, P
 bool PathController::movingCollision(ActorMovementController& movementController, PolyF const& collisionPoly) {
   bool collided = false;
   movementController.forEachMovingCollision(collisionPoly.boundBox(), [&](MovingCollisionId id, PhysicsMovingCollision mc, PolyF poly, RectF bounds) {
+      _unused(id);
+      _unused(mc);
+      _unused(bounds);
       if (poly.intersects(collisionPoly)) {
         // set collided and stop iterating
         collided = true;

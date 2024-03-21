@@ -1,0 +1,115 @@
+{
+	"version": 6,
+	"cmakeMinimumRequired": {
+	  "major": 3,
+	  "minor": 25,
+	  "patch": 1
+	},
+	"configurePresets": [
+	  {
+		"name": "base",
+		"hidden": true,
+		"architecture": {
+		  "value": "x64",
+		  "strategy": "external"
+		},
+		"generator": "Ninja",
+		"toolchainFile": "$env{VCPKG_ROOT}/scripts/buildsystems/vcpkg.cmake",
+		"cacheVariables": {
+		  "CMAKE_INSTALL_PREFIX": "${sourceParentDir}/install",
+		  "VCPKG_OVERLAY_TRIPLETS": "${sourceParentDir}/vcpkg-triplets",
+		  "CMAKE_VERBOSE_MAKEFILE": false,
+		  "STAR_ENABLE_STEAM_INTEGRATION": true,
+		  "STAR_ENABLE_DISCORD_INTEGRATION": true
+		},
+		"vendor": {
+		  "microsoft.com/VisualStudioSettings/CMake/1.0": {
+			"hostOS": [
+			  "macOS"
+			]
+		  }
+		}
+	  },
+	  {
+		"inherits": "base",
+		"name": "macos-release",
+		"generator": "Unix Makefiles",
+		"displayName": "MacOS x64 - Release",
+		"binaryDir": "${sourceParentDir}/build/macos-release",
+		"cacheVariables": {
+		  "CMAKE_CXX_STANDARD": "17",
+		  "CMAKE_BUILD_TYPE": "Release",
+		  "VCPKG_TARGET_TRIPLET": "x64-osx-mixed",
+		  "CMAKE_INCLUDE_PATH": "${sourceParentDir}/lib/osx/include",
+		  "CMAKE_LIBRARY_PATH": "${sourceParentDir}/lib/osx/x64;${sourceParentDir}/lib/osx",
+		  "CMAKE_FIND_FRAMEWORK": "LAST"
+		},
+		"vendor": 
+		{
+			"microsoft.com/VisualStudioSettings/CMake/1.0": 
+			{
+				"hostOS": [
+					"macOS"
+				]
+			},
+        	"apple.com/Xcode": 
+			{
+				"Version": "13.0"
+		  	}
+		}
+	  },
+	  {
+		"inherits": "macos-release",
+		"name": "macos-arm-release",
+		"displayName": "MacOS ARM - Release",
+		"binaryDir": "${sourceParentDir}/build/macos-arm-release",
+		"architecture": {
+		  "value": "arm64",
+		  "strategy": "external"
+		},
+		"cacheVariables": {
+		  "VCPKG_TARGET_TRIPLET": "arm64-osx-mixed",
+		  "CMAKE_LIBRARY_PATH": "${sourceParentDir}/lib/osx/arm64;${sourceParentDir}/lib/osx"
+		}
+	  }
+	],
+	"buildPresets": [
+	  {
+		"name": "macos-release",
+		"configurePreset": "macos-release",
+		"configuration": "Release",
+		"jobs": 8,
+		"nativeToolOptions": [],
+		"verbose": false
+	  },
+	  {
+		"name": "macos-arm-release",
+		"configurePreset": "macos-arm-release",
+		"configuration": "Release",
+		"jobs": 8,
+		"nativeToolOptions": [],
+		"verbose": false
+	  }
+	],
+	"testPresets": [
+	  {
+		"name": "macos-release",
+		"configurePreset": "macos-release",
+		"filter": {
+		  "include": {
+			"label": "NoAssets"
+		  }
+		}
+	  },
+	  {
+		"name": "macos-arm-release",
+		"configurePreset": "macos-arm-release",
+		"filter": {
+		  "include": {
+			"label": "NoAssets"
+		  }
+		}
+	  }
+	]
+  }
+  

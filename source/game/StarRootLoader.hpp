@@ -1,5 +1,4 @@
-#ifndef STAR_ROOT_LOADER_HPP
-#define STAR_ROOT_LOADER_HPP
+#pragma once
 
 #include "StarVersionOptionParser.hpp"
 #include "StarRoot.hpp"
@@ -68,4 +67,3 @@ private:
 
 }
 
-#endif

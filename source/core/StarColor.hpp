@@ -1,5 +1,4 @@
-#ifndef STAR_COLOR_HPP
-#define STAR_COLOR_HPP
+#pragma once
 
 #include "StarString.hpp"
 #include "StarVector.hpp"
@@ -168,4 +167,3 @@ inline Vec4B Color::v4fToByte(Vec4F const& f, bool doClamp) {
 
 }
 
-#endif

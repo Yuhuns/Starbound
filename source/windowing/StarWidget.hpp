@@ -1,5 +1,4 @@
-#ifndef STAR_WIDGET_HPP
-#define STAR_WIDGET_HPP
+#pragma once
 
 #include "StarVector.hpp"
 #include "StarCasting.hpp"
@@ -175,4 +174,3 @@ shared_ptr<WidgetType> Widget::findChild(String const& name) {
 
 }
 
-#endif

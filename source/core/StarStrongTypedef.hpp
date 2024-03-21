@@ -1,5 +1,4 @@
-#ifndef STAR_STRONG_TYPEDEF_HPP
-#define STAR_STRONG_TYPEDEF_HPP
+#pragma once
 
 #include <type_traits>
 
@@ -102,4 +101,3 @@
     }                                           \
   }
 
-#endif

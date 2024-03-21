@@ -1,5 +1,4 @@
-#ifndef STAR_ALGORITHM_HPP
-#define STAR_ALGORITHM_HPP
+#pragma once
 
 #include <type_traits>
 #include <vector>
@@ -659,4 +658,3 @@ struct FunctionTraits<T const&&> : public FunctionTraits<T> {};
 
 }
 
-#endif

@@ -1,5 +1,4 @@
-#ifndef STAR_NET_ELEMENT_SIGNAL_HPP
-#define STAR_NET_ELEMENT_SIGNAL_HPP
+#pragma once
 
 #include "StarNetElement.hpp"
 
@@ -142,4 +141,3 @@ List<Signal> NetElementSignal<Signal>::receive() {
 
 }
 
-#endif

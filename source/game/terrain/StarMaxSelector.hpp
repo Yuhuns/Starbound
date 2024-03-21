@@ -1,5 +1,4 @@
-#ifndef STAR_MAX_SELECTOR_HPP
-#define STAR_MAX_SELECTOR_HPP
+#pragma once
 
 #include "StarTerrainDatabase.hpp"
 
@@ -17,4 +16,3 @@ struct MaxSelector : TerrainSelector {
 
 }
 
-#endif

@@ -1,5 +1,4 @@
-#ifndef STAR_JSON_COMMENTS_HPP
-#define STAR_JSON_COMMENTS_HPP
+#pragma once
 
 #include <list>
 
@@ -130,4 +129,3 @@ std::ostream& operator<<(std::ostream& os, FormattedJson const& json);
 
 }
 
-#endif

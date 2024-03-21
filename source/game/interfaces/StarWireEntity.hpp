@@ -1,5 +1,4 @@
-#ifndef STAR_WIRE_ENTITY_HPP
-#define STAR_WIRE_ENTITY_HPP
+#pragma once
 
 #include "StarWiring.hpp"
 #include "StarTileEntity.hpp"
@@ -25,4 +24,3 @@ public:
 
 }
 
-#endif

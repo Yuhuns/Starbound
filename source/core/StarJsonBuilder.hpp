@@ -1,5 +1,4 @@
-#ifndef STAR_JSON_BUILDER_HPP
-#define STAR_JSON_BUILDER_HPP
+#pragma once
 
 #include "StarJsonParser.hpp"
 #include "StarJson.hpp"
@@ -101,4 +100,3 @@ void outputUtf32Json(Jsonlike const& val, OutputIterator out, int pretty, bool s
 
 }
 
-#endif

@@ -1,5 +1,4 @@
-#ifndef STAR_RIDGE_BLOCKS_SELECTOR_HPP
-#define STAR_RIDGE_BLOCKS_SELECTOR_HPP
+#pragma once
 
 #include "StarTerrainDatabase.hpp"
 #include "StarPerlin.hpp"
@@ -29,4 +28,3 @@ struct RidgeBlocksSelector : TerrainSelector {
 
 }
 
-#endif

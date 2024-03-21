@@ -1,5 +1,4 @@
-#ifndef STAR_P2P_NETWORKING_SERVICE_PC_HPP
-#define STAR_P2P_NETWORKING_SERVICE_PC_HPP
+#pragma once
 
 #include "StarPlatformServices_pc.hpp"
 #include "StarAlgorithm.hpp"
@@ -143,4 +142,3 @@ private:
 
 }
 
-#endif

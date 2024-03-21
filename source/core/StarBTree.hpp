@@ -1,5 +1,4 @@
-#ifndef STAR_B_TREE_HPP
-#define STAR_B_TREE_HPP
+#pragma once
 
 #include "StarList.hpp"
 #include "StarMaybe.hpp"
@@ -934,4 +933,3 @@ size_t BTreeMixin<Base>::indexFind(Index const& index, Key const& key) {
 
 }
 
-#endif

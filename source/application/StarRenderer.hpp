@@ -1,5 +1,4 @@
-#ifndef STAR_RENDERER_HPP
-#define STAR_RENDERER_HPP
+#pragma once
 
 #include "StarVariant.hpp"
 #include "StarImage.hpp"
@@ -47,7 +46,7 @@ struct RenderVertex {
   Vec2F screenCoordinate;
   Vec2F textureCoordinate;
   Vec4B color;
-  float param1;
+  float param1 = 0.0f;
 };
 
 struct RenderTriangle {
@@ -144,4 +143,3 @@ public:
 
 }
 
-#endif

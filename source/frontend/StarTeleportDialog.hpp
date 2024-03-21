@@ -1,5 +1,4 @@
-#ifndef STAR_TELEPORTER_DIALOG_HPP
-#define STAR_TELEPORTER_DIALOG_HPP
+#pragma once
 
 #include "StarPane.hpp"
 #include "StarWarping.hpp"
@@ -35,4 +34,3 @@ private:
 
 }
 
-#endif

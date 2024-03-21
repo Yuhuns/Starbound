@@ -1,5 +1,4 @@
-#ifndef STAR_PORTRAIT_WIDGET_HPP
-#define STAR_PORTRAIT_WIDGET_HPP
+#pragma once
 
 #include "StarWidget.hpp"
 #include "StarPlayer.hpp"
@@ -41,4 +40,3 @@ private:
 };
 
 }
-#endif

@@ -1,5 +1,4 @@
-#ifndef STAR_CHAR_SELECTION_HPP
-#define STAR_CHAR_SELECTION_HPP
+#pragma once
 
 #include "StarPane.hpp"
 #include "StarPlayerStorage.hpp"
@@ -35,4 +34,3 @@ private:
 typedef shared_ptr<CharSelectionPane> CharSelectionPanePtr;
 }
 
-#endif

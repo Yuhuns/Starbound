@@ -1,5 +1,4 @@
-#ifndef STAR_CONFIG_HPP
-#define STAR_CONFIG_HPP
+#pragma once
 
 #include <cstdint>
 #include <cstdlib>
@@ -110,4 +109,3 @@ typedef int64_t StreamOffset;
 
 }
 
-#endif

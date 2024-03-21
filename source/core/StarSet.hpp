@@ -1,5 +1,4 @@
-#ifndef STAR_SET_HPP
-#define STAR_SET_HPP
+#pragma once
 
 #include <set>
 #include <unordered_set>
@@ -319,4 +318,3 @@ HashSetMixin<BaseMap> HashSetMixin<BaseMap>::combination(HashSetMixin const& s) 
 
 }
 
-#endif

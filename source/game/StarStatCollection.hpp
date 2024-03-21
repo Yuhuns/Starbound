@@ -1,5 +1,4 @@
-#ifndef STAR_STAT_COLLECTION_HPP
-#define STAR_STAT_COLLECTION_HPP
+#pragma once
 
 #include "StarEither.hpp"
 #include "StarNetElementSystem.hpp"
@@ -67,4 +66,3 @@ private:
 
 }
 
-#endif

@@ -1,5 +1,4 @@
-#ifndef STAR_BYTES_HPP
-#define STAR_BYTES_HPP
+#pragma once
 
 #include "StarMemory.hpp"
 
@@ -106,4 +105,3 @@ inline void fromByteOrder(ByteOrder order, void* dest, void const* src, size_t l
 
 }
 
-#endif

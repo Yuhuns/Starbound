@@ -1,5 +1,4 @@
-#ifndef STAR_SKY_TYPES_HPP
-#define STAR_SKY_TYPES_HPP
+#pragma once
 
 #include "StarColor.hpp"
 #include "StarBiMap.hpp"
@@ -86,4 +85,3 @@ struct SkyWorldHorizon {
 
 }
 
-#endif

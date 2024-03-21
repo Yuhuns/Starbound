@@ -1,5 +1,4 @@
-#ifndef STAR_SCRIPTED_ENTITY_HPP
-#define STAR_SCRIPTED_ENTITY_HPP
+#pragma once
 
 #include "StarEntity.hpp"
 #include "StarLua.hpp"
@@ -22,4 +21,3 @@ public:
 
 }
 
-#endif

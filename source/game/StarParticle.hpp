@@ -1,5 +1,4 @@
-#ifndef STAR_PARTICLE_HPP
-#define STAR_PARTICLE_HPP
+#pragma once
 
 #include "StarJson.hpp"
 #include "StarColor.hpp"
@@ -121,4 +120,3 @@ ParticleVariantCreator makeParticleVariantCreator(Particle particle, Particle va
 
 }
 
-#endif

@@ -1,5 +1,4 @@
-#ifndef STAR_BIOME_PLACEMENT_HPP
-#define STAR_BIOME_PLACEMENT_HPP
+#pragma once
 
 #include "StarPerlin.hpp"
 #include "StarWeightedPool.hpp"
@@ -99,4 +98,3 @@ private:
 
 }
 
-#endif

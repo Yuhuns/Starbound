@@ -1,5 +1,4 @@
-#ifndef STAR_CELESTIAL_PARAMETERS_HPP
-#define STAR_CELESTIAL_PARAMETERS_HPP
+#pragma once
 
 #include "StarCelestialCoordinate.hpp"
 #include "StarWorldParameters.hpp"
@@ -49,4 +48,3 @@ private:
 
 }
 
-#endif

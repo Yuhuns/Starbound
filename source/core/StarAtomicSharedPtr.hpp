@@ -1,5 +1,4 @@
-#ifndef STAR_ATOMIC_SHARED_PTR_HPP
-#define STAR_ATOMIC_SHARED_PTR_HPP
+#pragma once
 
 #include "StarThread.hpp"
 
@@ -118,4 +117,3 @@ AtomicSharedPtr<T>& AtomicSharedPtr<T>::operator=(SharedPtr p) {
 
 }
 
-#endif

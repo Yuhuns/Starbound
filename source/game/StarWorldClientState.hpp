@@ -1,5 +1,4 @@
-#ifndef STAR_WORLD_CLIENT_STATE_HPP
-#define STAR_WORLD_CLIENT_STATE_HPP
+#pragma once
 
 #include "StarRect.hpp"
 #include "StarNetElementSystem.hpp"
@@ -57,4 +56,3 @@ private:
 
 }
 
-#endif

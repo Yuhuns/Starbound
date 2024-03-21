@@ -1,5 +1,4 @@
-#ifndef STAR_MULTI_ARRAY_INTERPOLATOR_HPP
-#define STAR_MULTI_ARRAY_INTERPOLATOR_HPP
+#pragma once
 
 #include "StarMultiArray.hpp"
 #include "StarInterpolation.hpp"
@@ -536,4 +535,3 @@ struct MultiArrayInterpolator4<MultiArray<ElementT, 3>, PositionT> {
 
 }
 
-#endif

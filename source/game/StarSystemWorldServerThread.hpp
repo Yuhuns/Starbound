@@ -1,5 +1,4 @@
-#ifndef STAR_SYSTEM_WORLD_SERVER_THREAD_HPP
-#define STAR_SYSTEM_WORLD_SERVER_THREAD_HPP
+#pragma once
 
 #include "StarSystemWorldServer.hpp"
 #include "StarThread.hpp"
@@ -72,4 +71,3 @@ private:
 
 }
 
-#endif

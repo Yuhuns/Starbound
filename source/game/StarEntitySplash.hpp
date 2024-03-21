@@ -1,5 +1,4 @@
-#ifndef STAR_ENTITY_UTILITIES_HPP
-#define STAR_ENTITY_UTILITIES_HPP
+#pragma once
 
 #include "StarJson.hpp"
 #include "StarParticle.hpp"
@@ -27,4 +26,3 @@ struct EntitySplashConfig {
 
 }
 
-#endif

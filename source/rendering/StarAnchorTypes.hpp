@@ -1,5 +1,4 @@
-#ifndef STAR_ANCHOR_TYPES_HPP
-#define STAR_ANCHOR_TYPES_HPP
+#pragma once
 
 #include "StarBiMap.hpp"
 
@@ -21,4 +20,3 @@ extern EnumMap<VerticalAnchor> const VerticalAnchorNames;
 
 }
 
-#endif

@@ -1,5 +1,4 @@
-#ifndef STAR_KEY_BINDINGS_HPP
-#define STAR_KEY_BINDINGS_HPP
+#pragma once
 
 #include "StarInputEvent.hpp"
 #include "StarSet.hpp"
@@ -116,4 +115,3 @@ private:
 
 }
 
-#endif

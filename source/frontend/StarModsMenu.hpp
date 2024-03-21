@@ -1,5 +1,4 @@
-#ifndef STAR_MODS_MENU_HPP
-#define STAR_MODS_MENU_HPP
+#pragma once
 
 #include "StarPane.hpp"
 
@@ -36,4 +35,3 @@ private:
 
 }
 
-#endif

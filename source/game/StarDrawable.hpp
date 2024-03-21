@@ -1,5 +1,4 @@
-#ifndef STAR_DRAWABLE_HPP
-#define STAR_DRAWABLE_HPP
+#pragma once
 
 #include "StarString.hpp"
 #include "StarDataStream.hpp"
@@ -184,4 +183,3 @@ inline Drawable::ImagePart const& Drawable::imagePart() const {
 
 }
 
-#endif

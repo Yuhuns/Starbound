@@ -1,5 +1,4 @@
-#ifndef STAR_CHAT_BUBBLE_SEPARATION_HPP
-#define STAR_CHAT_BUBBLE_SEPARATION_HPP
+#pragma once
 
 #include "StarRect.hpp"
 #include "StarList.hpp"
@@ -178,4 +177,3 @@ bool BubbleSeparator<T>::compareBubbleY(Bubble const& a, Bubble const& b) {
 }
 }
 
-#endif

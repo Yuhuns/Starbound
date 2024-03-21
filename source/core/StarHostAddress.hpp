@@ -1,5 +1,4 @@
-#ifndef STAR_HOST_ADDRESS_HPP
-#define STAR_HOST_ADDRESS_HPP
+#pragma once
 
 #include "StarString.hpp"
 #include "StarEither.hpp"
@@ -86,4 +85,3 @@ struct hash<HostAddressWithPort> {
 
 }
 
-#endif

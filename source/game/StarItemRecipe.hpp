@@ -1,5 +1,4 @@
-#ifndef STAR_ITEM_RECIPE_HPP
-#define STAR_ITEM_RECIPE_HPP
+#pragma once
 
 #include "StarItemDescriptor.hpp"
 #include "StarGameTypes.hpp"
@@ -35,4 +34,3 @@ struct hash<ItemRecipe> {
 std::ostream& operator<<(std::ostream& os, ItemRecipe const& recipe);
 }
 
-#endif

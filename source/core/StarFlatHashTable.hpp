@@ -1,5 +1,4 @@
-#ifndef STAR_FLAT_HASH_TABLE_HPP
-#define STAR_FLAT_HASH_TABLE_HPP
+#pragma once
 
 #include <vector>
 
@@ -554,4 +553,3 @@ void FlatHashTable<Value, Key, GetKey, Hash, Equals, Allocator>::checkCapacity(s
 
 }
 
-#endif

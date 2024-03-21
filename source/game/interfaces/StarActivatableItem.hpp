@@ -1,5 +1,4 @@
-#ifndef STAR_ACTIVATABLE_ITEM_HPP
-#define STAR_ACTIVATABLE_ITEM_HPP
+#pragma once
 
 #include "StarConfig.hpp"
 
@@ -18,4 +17,3 @@ public:
 
 }
 
-#endif

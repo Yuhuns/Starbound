@@ -1,5 +1,4 @@
-#ifndef STAR_CELLULAR_LIGHT_ARRAY_HPP
-#define STAR_CELLULAR_LIGHT_ARRAY_HPP
+#pragma once
 
 #include "StarList.hpp"
 #include "StarVector.hpp"
@@ -587,4 +586,3 @@ float CellularLightArray<LightTraits>::lineAttenuation(Vec2F const& start, Vec2F
 
 }
 
-#endif

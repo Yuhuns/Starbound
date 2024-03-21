@@ -1,5 +1,4 @@
-#ifndef STAR_SCRIPT_PANE_HPP
-#define STAR_SCRIPT_PANE_HPP
+#pragma once
 
 #include "StarPane.hpp"
 #include "StarLuaComponents.hpp"
@@ -46,4 +45,3 @@ private:
 
 }
 
-#endif

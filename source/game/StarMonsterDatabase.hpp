@@ -1,5 +1,4 @@
-#ifndef STAR_MONSTER_DATABASE_HPP
-#define STAR_MONSTER_DATABASE_HPP
+#pragma once
 
 #include "StarNetworkedAnimator.hpp"
 #include "StarActorMovementController.hpp"
@@ -198,4 +197,3 @@ private:
 
 }
 
-#endif

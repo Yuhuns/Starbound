@@ -1,5 +1,4 @@
-#ifndef STAR_PARTICLE_MANAGER_HPP
-#define STAR_PARTICLE_MANAGER_HPP
+#pragma once
 
 #include "StarWorldGeometry.hpp"
 #include "StarParticle.hpp"
@@ -40,4 +39,3 @@ private:
 
 }
 
-#endif

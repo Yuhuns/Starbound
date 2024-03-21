@@ -1,5 +1,4 @@
-#ifndef STAR_CELLULAR_LIGHTING_HPP
-#define STAR_CELLULAR_LIGHTING_HPP
+#pragma once
 
 #include "StarEither.hpp"
 #include "StarRect.hpp"
@@ -93,4 +92,3 @@ inline void CellularLightingCalculator::setCellIndex(size_t cellIndex, Vec3F con
 
 }
 
-#endif

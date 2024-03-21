@@ -1,5 +1,4 @@
-#ifndef STAR_VEHICLE_HPP
-#define STAR_VEHICLE_HPP
+#pragma once
 
 #include "StarNetElementSystem.hpp"
 #include "StarEntity.hpp"
@@ -169,4 +168,3 @@ private:
 
 }
 
-#endif

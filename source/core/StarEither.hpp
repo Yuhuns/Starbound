@@ -1,5 +1,4 @@
-#ifndef STAR_EITHER_HPP
-#define STAR_EITHER_HPP
+#pragma once
 
 #include "StarVariant.hpp"
 
@@ -240,4 +239,3 @@ Right* Either<Left, Right>::rightPtr() {
 
 }
 
-#endif

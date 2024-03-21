@@ -1,5 +1,4 @@
-#ifndef STAR_ANIMATED_PART_SET_HPP
-#define STAR_ANIMATED_PART_SET_HPP
+#pragma once
 
 #include "StarOrderedMap.hpp"
 #include "StarJson.hpp"
@@ -160,4 +159,3 @@ private:
 
 }
 
-#endif

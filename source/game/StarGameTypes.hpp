@@ -1,5 +1,4 @@
-#ifndef STAR_GAME_TYPES_HPP
-#define STAR_GAME_TYPES_HPP
+#pragma once
 
 #include "StarString.hpp"
 #include "StarBiMap.hpp"
@@ -165,4 +164,3 @@ enum class TileDamageResult {
 
 }
 
-#endif

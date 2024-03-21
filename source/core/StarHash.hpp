@@ -1,5 +1,4 @@
-#ifndef STAR_HASH_HPP
-#define STAR_HASH_HPP
+#pragma once
 
 #include "StarBytes.hpp"
 
@@ -97,4 +96,3 @@ size_t hashOf(T1 const& t1, T2 const& t2, TL const&... rest) {
 
 }
 
-#endif

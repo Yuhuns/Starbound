@@ -1,5 +1,4 @@
-#ifndef STAR_INPUT_EVENT_HPP
-#define STAR_INPUT_EVENT_HPP
+#pragma once
 
 #include "StarString.hpp"
 #include "StarBiMap.hpp"
@@ -271,4 +270,3 @@ inline KeyMod& operator&=(KeyMod& a, KeyMod b) {
 
 }
 
-#endif

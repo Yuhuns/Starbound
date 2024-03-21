@@ -1,5 +1,4 @@
-#ifndef STAR_ITEM_HPP
-#define STAR_ITEM_HPP
+#pragma once
 
 #include "StarSet.hpp"
 #include "StarDrawable.hpp"
@@ -177,4 +176,3 @@ inline ItemDescriptor itemSafeDescriptor(ItemPtr const& item) {
 }
 }
 
-#endif

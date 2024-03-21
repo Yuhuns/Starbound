@@ -1,5 +1,4 @@
-#ifndef STAR_EMOTE_PROCESSOR_HPP
-#define STAR_EMOTE_PROCESSOR_HPP
+#pragma once
 
 #include "StarHumanoid.hpp"
 
@@ -24,4 +23,3 @@ private:
 
 }
 
-#endif

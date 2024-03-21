@@ -1,5 +1,4 @@
-#ifndef STAR_NET_PACKETS_HPP
-#define STAR_NET_PACKETS_HPP
+#pragma once
 
 #include "StarDataStream.hpp"
 #include "StarWorldTiles.hpp"
@@ -893,4 +892,3 @@ struct SystemObjectSpawnPacket : PacketBase<PacketType::SystemObjectSpawn> {
 };
 }
 
-#endif

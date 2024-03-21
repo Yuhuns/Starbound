@@ -1,5 +1,4 @@
-#ifndef STAR_PLAYER_BLUEPRINTS_HPP
-#define STAR_PLAYER_BLUEPRINTS_HPP
+#pragma once
 
 #include "StarByteArray.hpp"
 #include "StarSet.hpp"
@@ -28,4 +27,3 @@ private:
 
 }
 
-#endif

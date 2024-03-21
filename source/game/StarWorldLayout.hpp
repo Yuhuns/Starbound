@@ -1,5 +1,4 @@
-#ifndef STAR_WORLD_REGIONS_HPP
-#define STAR_WORLD_REGIONS_HPP
+#pragma once
 
 #include "StarPerlin.hpp"
 #include "StarWeatherTypes.hpp"
@@ -178,4 +177,3 @@ inline TerrainSelectorConstPtr const& WorldLayout::getTerrainSelector(TerrainSel
 
 }
 
-#endif

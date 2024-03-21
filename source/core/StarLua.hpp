@@ -1,5 +1,4 @@
-#ifndef STAR_LUA_HPP
-#define STAR_LUA_HPP
+#pragma once
 
 #include <typeindex>
 #include <type_traits>
@@ -1947,7 +1946,8 @@ Maybe<LuaDetail::LuaFunctionReturn> LuaEngine::resumeThread(int handleIndex, Arg
 
   size_t argSize = pushArguments(threadState, args...);
   incrementRecursionLevel();
-  int res = lua_resume(threadState, nullptr, argSize);
+  int nresult;
+  int res = lua_resume(threadState, nullptr, argSize, &nresult);
   decrementRecursionLevel();
   if (res != LUA_OK && res != LUA_YIELD) {
     propagateErrorWithTraceback(threadState, m_state);
@@ -2160,4 +2160,3 @@ size_t LuaEngine::pushArguments(lua_State* state, Args const&... args) {
 
 }
 
-#endif

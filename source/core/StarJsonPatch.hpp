@@ -1,5 +1,4 @@
-#ifndef STAR_JSON_PATCH_HPP
-#define STAR_JSON_PATCH_HPP
+#pragma once
 
 #include "StarJson.hpp"
 
@@ -38,4 +37,3 @@ namespace JsonPatching {
 
 }
 
-#endif

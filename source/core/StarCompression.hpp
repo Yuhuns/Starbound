@@ -1,5 +1,4 @@
-#ifndef STAR_COMPRESSION_HPP
-#define STAR_COMPRESSION_HPP
+#pragma once
 
 #include "StarIODevice.hpp"
 #include "StarString.hpp"
@@ -56,4 +55,3 @@ private:
 
 }
 
-#endif

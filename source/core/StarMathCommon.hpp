@@ -1,5 +1,4 @@
-#ifndef STAR_MATH_COMMON_HPP
-#define STAR_MATH_COMMON_HPP
+#pragma once
 
 #include <type_traits>
 #include <limits>
@@ -325,4 +324,3 @@ Integer cycleIncrement(Integer val, Integer min, Integer max) {
 
 }
 
-#endif

@@ -1,5 +1,4 @@
-#ifndef STAR_TEAMCLIENT_HPP
-#define STAR_TEAMCLIENT_HPP
+#pragma once
 
 #include "StarUuid.hpp"
 #include "StarDrawable.hpp"
@@ -85,4 +84,3 @@ private:
 
 }
 
-#endif

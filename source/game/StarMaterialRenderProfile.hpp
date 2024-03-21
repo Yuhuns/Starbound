@@ -1,5 +1,4 @@
-#ifndef STAR_MATERIAL_RENDER_MATCHING_HPP
-#define STAR_MATERIAL_RENDER_MATCHING_HPP
+#pragma once
 
 #include "StarRect.hpp"
 #include "StarJson.hpp"
@@ -122,4 +121,3 @@ MaterialRenderProfile parseMaterialRenderProfile(Json const& spec, String const&
 
 }
 
-#endif

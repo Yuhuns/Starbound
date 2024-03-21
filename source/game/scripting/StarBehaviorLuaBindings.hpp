@@ -1,5 +1,4 @@
-#ifndef STAR_BEHAVIOR_LUA_BINDINGS_HPP
-#define STAR_BEHAVIOR_LUA_BINDINGS_HPP
+#pragma once
 
 #include "StarLua.hpp"
 #include "StarBehaviorState.hpp"
@@ -14,4 +13,3 @@ namespace LuaBindings {
 }
 }
 
-#endif

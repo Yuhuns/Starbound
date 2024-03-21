@@ -1,5 +1,4 @@
-#ifndef STAR_MULTI_ARRAY_HPP
-#define STAR_MULTI_ARRAY_HPP
+#pragma once
 
 #include "StarArray.hpp"
 #include "StarList.hpp"
@@ -507,4 +506,3 @@ std::ostream& operator<<(std::ostream& os, MultiArray<Element, Rank> const& arra
 
 }
 
-#endif

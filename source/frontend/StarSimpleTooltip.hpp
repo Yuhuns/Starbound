@@ -1,5 +1,4 @@
-#ifndef STAR_SIMPLE_TOOLTIP_HPP
-#define STAR_SIMPLE_TOOLTIP_HPP
+#pragma once
 
 #include "StarString.hpp"
 
@@ -13,4 +12,3 @@ namespace SimpleTooltipBuilder {
 
 }
 
-#endif

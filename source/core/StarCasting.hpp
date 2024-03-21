@@ -1,5 +1,4 @@
-#ifndef STAR_CASTING_HPP
-#define STAR_CASTING_HPP
+#pragma once
 
 #include "StarException.hpp"
 #include "StarFormat.hpp"
@@ -90,4 +89,3 @@ weak_ptr<Type const> asWeak(shared_ptr<Type const> const& p) {
 
 }
 
-#endif

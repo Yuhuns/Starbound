@@ -1,5 +1,4 @@
-#ifndef STAR_FORMAT_HPP
-#define STAR_FORMAT_HPP
+#pragma once
 
 #include "StarMemory.hpp"
 
@@ -97,4 +96,3 @@ inline std::ostream& operator<<(std::ostream& os, OutputProxy const& p) {
 
 }
 
-#endif

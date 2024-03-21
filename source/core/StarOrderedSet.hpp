@@ -1,5 +1,4 @@
-#ifndef STAR_ORDERED_SET_HPP
-#define STAR_ORDERED_SET_HPP
+#pragma once
 
 #include <map>
 
@@ -427,4 +426,3 @@ std::ostream& operator<<(std::ostream& os, OrderedSetWrapper<Map, Value, Allocat
 
 }
 
-#endif

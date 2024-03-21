@@ -1,5 +1,4 @@
-#ifndef STAR_STATIC_RANDOM_HPP
-#define STAR_STATIC_RANDOM_HPP
+#pragma once
 
 #include "StarString.hpp"
 #include "StarXXHash.hpp"
@@ -144,4 +143,3 @@ void staticRandomShuffle(Container& container, T const& d, TL const&... rest) {
 
 }
 
-#endif

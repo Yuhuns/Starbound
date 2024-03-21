@@ -1,5 +1,4 @@
-#ifndef STAR_MONSTER_HPP
-#define STAR_MONSTER_HPP
+#pragma once
 
 #include "StarEntity.hpp"
 #include "StarNetElementSystem.hpp"
@@ -205,4 +204,3 @@ private:
 
 }
 
-#endif

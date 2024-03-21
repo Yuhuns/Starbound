@@ -1,5 +1,4 @@
-#ifndef STAR_TOOL_USER_ITEM_HPP
-#define STAR_TOOL_USER_ITEM_HPP
+#pragma once
 
 #include "StarToolUserEntity.hpp"
 #include "StarPhysicsEntity.hpp"
@@ -46,4 +45,3 @@ private:
 
 }
 
-#endif

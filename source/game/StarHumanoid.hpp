@@ -1,5 +1,4 @@
-#ifndef STAR_HUMANOID_HPP
-#define STAR_HUMANOID_HPP
+#pragma once
 
 #include "StarDataStream.hpp"
 #include "StarGameTypes.hpp"
@@ -364,4 +363,3 @@ private:
 
 }
 
-#endif

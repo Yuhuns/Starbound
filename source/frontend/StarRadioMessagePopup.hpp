@@ -1,5 +1,4 @@
-#ifndef STAR_RADIO_MESSAGE_POPUP_HPP
-#define STAR_RADIO_MESSAGE_POPUP_HPP
+#pragma once
 
 #include "StarGameTimers.hpp"
 #include "StarPane.hpp"
@@ -62,4 +61,3 @@ private:
 
 }
 
-#endif

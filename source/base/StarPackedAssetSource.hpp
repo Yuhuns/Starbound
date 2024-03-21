@@ -1,5 +1,4 @@
-#ifndef STAR_PACKED_ASSET_SOURCE_HPP
-#define STAR_PACKED_ASSET_SOURCE_HPP
+#pragma once
 
 #include "StarOrderedMap.hpp"
 #include "StarFile.hpp"
@@ -42,4 +41,3 @@ private:
 
 }
 
-#endif

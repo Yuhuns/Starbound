@@ -1,5 +1,4 @@
-#ifndef STAR_CHAT_HPP
-#define STAR_CHAT_HPP
+#pragma once
 
 #include "StarPane.hpp"
 #include "StarChatTypes.hpp"
@@ -97,4 +96,3 @@ private:
 
 }
 
-#endif

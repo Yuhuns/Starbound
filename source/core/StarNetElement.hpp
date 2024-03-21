@@ -1,5 +1,4 @@
-#ifndef STAR_NET_ELEMENT_HPP
-#define STAR_NET_ELEMENT_HPP
+#pragma once
 
 #include "StarDataStream.hpp"
 
@@ -59,4 +58,3 @@ public:
 
 }
 
-#endif

@@ -1,5 +1,4 @@
-#ifndef STAR_MAIN_APPLICATION_HPP
-#define STAR_MAIN_APPLICATION_HPP
+#pragma once
 
 #include "StarApplication.hpp"
 #include "StarApplicationController.hpp"
@@ -31,4 +30,3 @@ namespace Star {
 
 #endif
 
-#endif

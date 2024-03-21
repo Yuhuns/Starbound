@@ -1,5 +1,4 @@
-#ifndef STAR_IMAGE_HPP
-#define STAR_IMAGE_HPP
+#pragma once
 
 #include "StarString.hpp"
 #include "StarVector.hpp"
@@ -310,4 +309,3 @@ void Image::forEachPixel(CallbackType&& callback) {
 
 }
 
-#endif

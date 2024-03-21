@@ -1,5 +1,4 @@
-#ifndef STAR_AUDIO_HPP
-#define STAR_AUDIO_HPP
+#pragma once
 
 #include "StarIODevice.hpp"
 
@@ -92,4 +91,3 @@ private:
 
 }
 
-#endif

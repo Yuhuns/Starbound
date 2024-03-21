@@ -1,5 +1,4 @@
-#ifndef STAR_ITEM_BAG_HPP
-#define STAR_ITEM_BAG_HPP
+#pragma once
 
 #include "StarMathCommon.hpp"
 #include "StarItemDescriptor.hpp"
@@ -117,4 +116,3 @@ private:
 
 }
 
-#endif

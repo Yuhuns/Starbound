@@ -1,5 +1,4 @@
-#ifndef STAR_WORLD_TILES_HPP
-#define STAR_WORLD_TILES_HPP
+#pragma once
 
 #include "StarGameTypes.hpp"
 #include "StarXXHash.hpp"
@@ -327,4 +326,3 @@ inline void RenderTile::hashPushLiquid(Hasher& hasher) const {
 
 }
 
-#endif

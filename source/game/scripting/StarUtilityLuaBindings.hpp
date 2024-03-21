@@ -1,5 +1,4 @@
-#ifndef STAR_UTILITY_LUA_BINDINGS_HPP
-#define STAR_UTILITY_LUA_BINDINGS_HPP
+#pragma once
 
 #include "StarLua.hpp"
 
@@ -25,4 +24,3 @@ namespace LuaBindings {
 }
 }
 
-#endif

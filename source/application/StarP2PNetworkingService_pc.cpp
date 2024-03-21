@@ -440,6 +440,7 @@ P2PSocketUPtr PcP2PNetworkingService::discordConnectRemote(discord::UserId remot
 
   Logger::info("Connect to discord lobby %s", lobbyId);
   m_state->discordCore->LobbyManager().ConnectLobby(lobbyId, lobbySecret.utf8Ptr(), [this, remoteUserId, lobbyId](discord::Result res, discord::Lobby const& lobby) {
+      _unused(lobby);
       MutexLocker serviceLocker(m_mutex);
       if (res == discord::Result::Ok) {
         if (auto socket = m_discordOpenSockets.value(remoteUserId)) {

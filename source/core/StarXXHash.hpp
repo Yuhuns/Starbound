@@ -1,5 +1,4 @@
-#ifndef STAR_XXHASH_HPP
-#define STAR_XXHASH_HPP
+#pragma once
 
 #include "StarString.hpp"
 #include "StarByteArray.hpp"
@@ -139,4 +138,3 @@ inline uint64_t xxHash64(String const& in) {
 
 }
 
-#endif

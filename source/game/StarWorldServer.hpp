@@ -1,5 +1,4 @@
-#ifndef STAR_WORLD_SERVER_HPP
-#define STAR_WORLD_SERVER_HPP
+#pragma once
 
 #include "StarWorld.hpp"
 #include "StarWorldClientState.hpp"
@@ -377,4 +376,3 @@ private:
 
 }
 
-#endif

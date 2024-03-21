@@ -1,5 +1,4 @@
-#ifndef STAR_WEIGHTED_POOL_HPP
-#define STAR_WEIGHTED_POOL_HPP
+#pragma once
 
 #include "StarRandom.hpp"
 
@@ -193,4 +192,3 @@ size_t WeightedPool<Item>::selectIndex(double target) const {
 
 }
 
-#endif

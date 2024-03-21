@@ -1,5 +1,4 @@
-#ifndef STAR_TEXTURE_ATLAS_HPP
-#define STAR_TEXTURE_ATLAS_HPP
+#pragma once
 
 #include "StarRect.hpp"
 #include "StarImage.hpp"
@@ -417,4 +416,3 @@ auto TextureAtlasSet<AtlasTextureHandle>::addTextureToAtlas(TextureAtlas* atlas,
 
 }
 
-#endif

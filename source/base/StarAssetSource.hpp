@@ -1,5 +1,4 @@
-#ifndef STAR_ASSET_SOURCE_HPP
-#define STAR_ASSET_SOURCE_HPP
+#pragma once
 
 #include "StarIODevice.hpp"
 #include "StarJson.hpp"
@@ -32,4 +31,3 @@ public:
 
 }
 
-#endif

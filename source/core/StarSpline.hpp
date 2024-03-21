@@ -1,5 +1,4 @@
-#ifndef STAR_SPLINE_HPP
-#define STAR_SPLINE_HPP
+#pragma once
 
 #include "StarVector.hpp"
 #include "StarInterpolation.hpp"
@@ -155,4 +154,3 @@ typedef Spline<float, 2, 3, Vec2F> CSplineF;
 
 }
 
-#endif

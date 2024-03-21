@@ -1,5 +1,4 @@
-#ifndef STAR_CHAT_BUBBLE_MANAGER_HPP
-#define STAR_CHAT_BUBBLE_MANAGER_HPP
+#pragma once
 
 #include "StarChatAction.hpp"
 #include "StarTextPainter.hpp"
@@ -97,4 +96,3 @@ private:
 
 }
 
-#endif

@@ -1,5 +1,4 @@
-#ifndef STAR_ARMORS_HPP
-#define STAR_ARMORS_HPP
+#pragma once
 
 #include "StarGameTypes.hpp"
 #include "StarItem.hpp"
@@ -124,4 +123,3 @@ private:
 
 }
 
-#endif

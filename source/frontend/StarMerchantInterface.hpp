@@ -1,5 +1,4 @@
-#ifndef STAR_MERCHANT_INTERFACE_HPP
-#define STAR_MERCHANT_INTERFACE_HPP
+#pragma once
 
 #include "StarWorldClient.hpp"
 #include "StarPane.hpp"
@@ -81,4 +80,3 @@ private:
 
 }
 
-#endif

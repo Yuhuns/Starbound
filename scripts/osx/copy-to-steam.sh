@@ -11,9 +11,6 @@ fi
 
 echo "Copying files to Steam install directory: $STEAM_INSTALL_DIR"
 cp ../assets/packed.pak "$STEAM_INSTALL_DIR/assets/packed.pak"
-cp libsteam_api.dylib "$STEAM_INSTALL_DIR/osx/libsteam_api.dylib"
-cp libdiscord_game_sdk.dylib "$STEAM_INSTALL_DIR/osx/libdiscord_game_sdk.dylib"
-cp discord_game_sdk.dylib "$STEAM_INSTALL_DIR/osx/discord_game_sdk.dylib"
-cp libsteam_api.dylib "$STEAM_INSTALL_DIR/osx/Starbound.app/Contents/MacOS/libsteam_api.dylib"
-cp libdiscord_game_sdk.dylib "$STEAM_INSTALL_DIR/osx/Starbound.app/Contents/MacOS/libdiscord_game_sdk.dylib"
-cp starbound "$STEAM_INSTALL_DIR/osx/Starbound.app/Contents/MacOS/"
+cp sbinit.config "$STEAM_INSTALL_DIR/osx/sbinit.config"
+cp starbound "$STEAM_INSTALL_DIR/osx/starbound"
+cp *.dylib "$STEAM_INSTALL_DIR/osx/"

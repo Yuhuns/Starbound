@@ -1,5 +1,4 @@
-#ifndef STAR_JSON_PATH_HPP
-#define STAR_JSON_PATH_HPP
+#pragma once
 
 #include "StarLexicalCast.hpp"
 #include "StarJson.hpp"
@@ -329,4 +328,3 @@ namespace JsonPath {
 
 }
 
-#endif

@@ -1,5 +1,4 @@
-#ifndef STAR_KEYBINDINGS_MENU_HPP
-#define STAR_KEYBINDINGS_MENU_HPP
+#pragma once
 
 #include "StarPane.hpp"
 
@@ -46,4 +45,3 @@ private:
 
 }
 
-#endif

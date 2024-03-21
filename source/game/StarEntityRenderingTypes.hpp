@@ -1,5 +1,4 @@
-#ifndef STAR_ENTITY_RENDERING_TYPES_HPP
-#define STAR_ENTITY_RENDERING_TYPES_HPP
+#pragma once
 
 #include "StarJson.hpp"
 #include "StarColor.hpp"
@@ -86,4 +85,3 @@ struct EntityHighlightEffect {
 
 }
 
-#endif

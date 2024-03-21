@@ -1,5 +1,4 @@
-#ifndef STAR_MATRIX3_HPP
-#define STAR_MATRIX3_HPP
+#pragma once
 
 #include "StarVector.hpp"
 
@@ -453,4 +452,3 @@ std::ostream& operator<<(std::ostream& os, Matrix3<T> m) {
 
 }
 
-#endif

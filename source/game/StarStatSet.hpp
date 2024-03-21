@@ -1,5 +1,4 @@
-#ifndef STAR_STAT_SET_HPP
-#define STAR_STAT_SET_HPP
+#pragma once
 
 #include "StarStatusTypes.hpp"
 
@@ -150,4 +149,3 @@ private:
 
 }
 
-#endif

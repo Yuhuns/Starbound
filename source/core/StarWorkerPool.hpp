@@ -1,5 +1,4 @@
-#ifndef STAR_WORKER_POOL_HPP
-#define STAR_WORKER_POOL_HPP
+#pragma once
 
 #include "StarThread.hpp"
 
@@ -219,4 +218,3 @@ WorkerPoolPromise<ResultType> WorkerPool::addProducer(function<ResultType()> pro
 
 }
 
-#endif

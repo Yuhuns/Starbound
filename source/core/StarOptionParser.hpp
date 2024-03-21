@@ -1,5 +1,4 @@
-#ifndef STAR_OPTION_PARSER_HPP
-#define STAR_OPTION_PARSER_HPP
+#pragma once
 
 #include "StarString.hpp"
 #include "StarVariant.hpp"
@@ -81,4 +80,3 @@ private:
 
 }
 
-#endif

@@ -1,5 +1,4 @@
-#ifndef STAR_PREVIEW_TILE_TOOL_HPP
-#define STAR_PREVIEW_TILE_TOOL_HPP
+#pragma once
 
 #include "StarList.hpp"
 
@@ -17,4 +16,3 @@ public:
 
 }
 
-#endif

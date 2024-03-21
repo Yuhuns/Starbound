@@ -1,5 +1,4 @@
-#ifndef STAR_INVENTORY_HPP
-#define STAR_INVENTORY_HPP
+#pragma once
 
 #include "StarPane.hpp"
 #include "StarInventoryTypes.hpp"
@@ -64,4 +63,3 @@ private:
 
 }
 
-#endif

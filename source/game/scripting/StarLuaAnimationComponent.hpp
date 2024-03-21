@@ -1,5 +1,4 @@
-#ifndef STAR_LUA_ANIMATION_COMPONENT_HPP
-#define STAR_LUA_ANIMATION_COMPONENT_HPP
+#pragma once
 
 #include "StarLuaComponents.hpp"
 #include "StarJsonExtra.hpp"
@@ -142,4 +141,3 @@ void LuaAnimationComponent<Base>::contextShutdown() {
 
 }
 
-#endif

@@ -1,5 +1,4 @@
-#ifndef STAR_TECH_DATABASE_HPP
-#define STAR_TECH_DATABASE_HPP
+#pragma once
 
 #include "StarJson.hpp"
 #include "StarBiMap.hpp"
@@ -49,4 +48,3 @@ private:
 
 }
 
-#endif

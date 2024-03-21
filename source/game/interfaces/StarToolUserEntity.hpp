@@ -1,5 +1,4 @@
-#ifndef STAR_TOOL_USER_ENTITY_HPP
-#define STAR_TOOL_USER_ENTITY_HPP
+#pragma once
 
 #include "StarEntity.hpp"
 #include "StarParticle.hpp"
@@ -101,4 +100,3 @@ public:
 
 }
 
-#endif

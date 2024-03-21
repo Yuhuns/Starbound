@@ -1,5 +1,4 @@
-#ifndef STAR_PERLIN_HPP
-#define STAR_PERLIN_HPP
+#pragma once
 
 #include "StarJson.hpp"
 #include "StarBiMap.hpp"
@@ -715,4 +714,3 @@ inline Float Perlin<Float>::billow(Float x, Float y, Float z) const {
 
 }
 
-#endif

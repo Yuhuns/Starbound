@@ -1,5 +1,4 @@
-#ifndef STAR_NON_ROTATED_DRAWABLES_ITEM_HPP
-#define STAR_NON_ROTATED_DRAWABLES_ITEM_HPP
+#pragma once
 
 #include "StarDrawable.hpp"
 
@@ -15,4 +14,3 @@ public:
 
 }
 
-#endif

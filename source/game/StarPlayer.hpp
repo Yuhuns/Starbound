@@ -1,5 +1,4 @@
-#ifndef STAR_PLAYER_HPP
-#define STAR_PLAYER_HPP
+#pragma once
 
 #include "StarUuid.hpp"
 #include "StarNetElementSystem.hpp"
@@ -589,4 +588,3 @@ private:
 
 }
 
-#endif

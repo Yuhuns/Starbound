@@ -1,5 +1,4 @@
-#ifndef STAR_LEXICAL_CAST_HPP
-#define STAR_LEXICAL_CAST_HPP
+#pragma once
 
 #include "StarString.hpp"
 #include "StarMaybe.hpp"
@@ -71,4 +70,3 @@ std::string toString(Type const& t, std::ios_base::fmtflags flags = std::ios_bas
 
 }
 
-#endif

@@ -1,5 +1,4 @@
-#ifndef STAR_EFFECT_SOURCE_ITEM_HPP
-#define STAR_EFFECT_SOURCE_ITEM_HPP
+#pragma once
 
 #include "StarString.hpp"
 
@@ -15,4 +14,3 @@ public:
 
 }
 
-#endif

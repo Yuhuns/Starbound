@@ -1,5 +1,4 @@
-#ifndef STAR_PLAYER_INVENTORY_HPP
-#define STAR_PLAYER_INVENTORY_HPP
+#pragma once
 
 #include "StarInventoryTypes.hpp"
 #include "StarMultiArray.hpp"
@@ -222,4 +221,3 @@ private:
 
 }
 
-#endif

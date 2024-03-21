@@ -1,5 +1,4 @@
-#ifndef STAR_MEMORY_HPP
-#define STAR_MEMORY_HPP
+#pragma once
 
 #include <new>
 
@@ -17,4 +16,3 @@ void free(void* ptr, size_t size);
 
 }
 
-#endif

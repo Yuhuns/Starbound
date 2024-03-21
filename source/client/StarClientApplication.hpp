@@ -1,5 +1,4 @@
-#ifndef STAR_CLIENT_APPLICATION_HPP
-#define STAR_CLIENT_APPLICATION_HPP
+#pragma once
 
 #include "StarUniverseServer.hpp"
 #include "StarUniverseClient.hpp"
@@ -114,4 +113,3 @@ private:
 
 }
 
-#endif

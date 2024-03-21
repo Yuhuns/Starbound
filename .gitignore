@@ -5,4 +5,16 @@ build/
 attic/
 storage/
 packed/
-assets/
+
+/assets/user/
+/assets/devel/
+/assets/packed.pak
+/assets/packed/
+
+mods/*
+
+.vscode/*
+!.vscode/tasks.json
+!.vscode/launch.json
+!.vscode/extensions.json
+!.vscode/*.code-snippets

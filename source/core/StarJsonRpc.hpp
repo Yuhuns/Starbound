@@ -1,5 +1,4 @@
-#ifndef STAR_JSON_RPC_HPP
-#define STAR_JSON_RPC_HPP
+#pragma once
 
 #include "StarJson.hpp"
 #include "StarByteArray.hpp"
@@ -51,4 +50,3 @@ private:
 
 }
 
-#endif

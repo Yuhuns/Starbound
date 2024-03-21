@@ -1,5 +1,4 @@
-#ifndef STAR_MATERIAL_ITEM_HPP
-#define STAR_MATERIAL_ITEM_HPP
+#pragma once
 
 #include "StarItem.hpp"
 #include "StarFireableItem.hpp"
@@ -47,4 +46,3 @@ private:
 
 }
 
-#endif

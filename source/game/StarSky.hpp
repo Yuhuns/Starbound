@@ -1,5 +1,4 @@
-#ifndef STAR_SKY_HPP
-#define STAR_SKY_HPP
+#pragma once
 
 #include "StarEither.hpp"
 #include "StarNetElementSystem.hpp"
@@ -188,4 +187,3 @@ private:
 
 }
 
-#endif

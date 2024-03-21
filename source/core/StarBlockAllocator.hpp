@@ -1,5 +1,4 @@
-#ifndef STAR_BLOCK_ALLOCATOR_HPP
-#define STAR_BLOCK_ALLOCATOR_HPP
+#pragma once
 
 #include <array>
 #include <vector>
@@ -265,4 +264,3 @@ typename BlockAllocator<T, BlockSize>::Data* BlockAllocator<T, BlockSize>::getAl
 
 }
 
-#endif

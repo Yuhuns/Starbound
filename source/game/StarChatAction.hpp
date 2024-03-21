@@ -1,5 +1,4 @@
-#ifndef STAR_CHAT_ACTION_HPP
-#define STAR_CHAT_ACTION_HPP
+#pragma once
 
 #include "StarJson.hpp"
 #include "StarGameTypes.hpp"
@@ -37,4 +36,3 @@ typedef MVariant<SayChatAction, PortraitChatAction> ChatAction;
 
 }
 
-#endif

@@ -434,6 +434,7 @@ void PlayerInventory::condenseBagStacks(String const& bagType) {\
   bag->condenseStacks();
   
   m_customBar.forEach([&](auto const& index, CustomBarLink& link) {
+      _unused(index);
       if (link.first) {
         if (auto bs = link.first->ptr<BagSlot>()) {
           if (bs->first == bagType && !bag->at(bs->second))

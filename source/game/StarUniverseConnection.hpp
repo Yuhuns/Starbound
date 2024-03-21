@@ -1,5 +1,4 @@
-#ifndef STAR_UNIVERSE_CONNECTION_HPP
-#define STAR_UNIVERSE_CONNECTION_HPP
+#pragma once
 
 #include "StarNetPacketSocket.hpp"
 
@@ -111,4 +110,3 @@ private:
 
 }
 
-#endif

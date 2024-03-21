@@ -1,5 +1,4 @@
-#ifndef STAR_INSTRUMENT_ITEM_HPP
-#define STAR_INSTRUMENT_ITEM_HPP
+#pragma once
 
 #include "StarItem.hpp"
 #include "StarInstrumentItem.hpp"
@@ -54,4 +53,3 @@ private:
 
 }
 
-#endif

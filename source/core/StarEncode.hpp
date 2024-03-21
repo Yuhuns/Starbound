@@ -1,5 +1,4 @@
-#ifndef STAR_ENCODE_HPP
-#define STAR_ENCODE_HPP
+#pragma once
 
 #include "StarString.hpp"
 #include "StarByteArray.hpp"
@@ -24,4 +23,3 @@ ByteArray base64Decode(String const& encodedData);
 
 }
 
-#endif
