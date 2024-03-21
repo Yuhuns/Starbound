@@ -458,12 +458,10 @@ set(STAR_EXT_LIBS ${STAR_EXT_LIBS}
 )
 
 if(STAR_BUILD_GUI)
-  find_package(SDL3 CONFIG REQUIRED)
+  find_package(SDL3 REQUIRED)
 
-  set(STAR_EXT_GUI_LIBS
-    $<TARGET_NAME_IF_EXISTS:SDL3::SDL3main>
-    $<IF:$<TARGET_EXISTS:SDL3::SDL3>,SDL3::SDL3,SDL3::SDL3-static>
-  )
+  include_directories(SYSTEM ${SDL3_INCLUDE_DIR})
+  set(STAR_EXT_GUI_LIBS ${STAR_EXT_GUI_LIBS} ${SDL3_LIBRARY})
 
   find_package(OpenGL REQUIRED)
   find_package(GLEW REQUIRED)
