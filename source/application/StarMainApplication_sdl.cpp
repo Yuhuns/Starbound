@@ -280,7 +280,7 @@ public:
     SDL_AudioStream *stream = SDL_OpenAudioDeviceStream(m_audioDeviceID, &desired, callback, userdata);
     m_audioDeviceID = SDL_GetAudioStreamDevice(stream);
     if (m_audioDeviceID == 0)
-      Logger::error("Application: Could not open audio device, no sound available!");
+      Logger::error("Application: Could not open audio device, no sound available for this application : %d", m_audioDeviceID);
     else
     {
       Logger::info("Successfully opened audio device : %d", m_audioDeviceID);
@@ -424,6 +424,7 @@ private:
 
     void setFullscreenWindow(Vec2U fullScreenResolution) override 
     {
+      _unused(fullScreenResolution);
       return (Logger::info("TODO: Application: Setting fullscreen window"));
     }
 
@@ -546,6 +547,7 @@ private:
       Maybe<InputEvent> starEvent;
       if (event.type >= SDL_EVENT_WINDOW_FIRST && event.type <= SDL_EVENT_WINDOW_LAST) 
       {
+        printEvent(event);
         if (event.window.type == SDL_EVENT_WINDOW_MAXIMIZED || event.window.type == SDL_EVENT_WINDOW_RESTORED) 
         {
           auto windowFlags = SDL_GetWindowFlags(m_sdlWindow);
@@ -626,6 +628,77 @@ private:
     }
     return inputEvents;
   }
+
+  void printEvent(SDL_Event const& event) 
+  {
+    if (event.type >= SDL_EVENT_WINDOW_FIRST && event.type <= SDL_EVENT_WINDOW_LAST) {
+        switch (event.type) 
+        {
+          case SDL_EVENT_WINDOW_SHOWN:
+              SDL_Log("Window %d shown", event.window.windowID);
+              break;
+          case SDL_EVENT_WINDOW_HIDDEN:
+              SDL_Log("Window %d hidden", event.window.windowID);
+              break;
+          case SDL_EVENT_WINDOW_EXPOSED:
+              SDL_Log("Window %d exposed", event.window.windowID);
+              break;
+          case SDL_EVENT_WINDOW_MOVED:
+              SDL_Log("Window %d moved to %d,%d",
+                      event.window.windowID, event.window.data1,
+                      event.window.data2);
+              break;
+          case SDL_EVENT_WINDOW_RESIZED:
+              SDL_Log("Window %d resized to %dx%d", event.window.windowID, event.window.data1, event.window.data2);
+              break;
+          case SDL_EVENT_WINDOW_PIXEL_SIZE_CHANGED:
+              SDL_Log("Window %d size changed to %dx%d", event.window.windowID, event.window.data1, event.window.data2);
+              break;
+          case SDL_EVENT_WINDOW_MINIMIZED:
+              SDL_Log("Window %d minimized", event.window.windowID);
+              break;
+          case SDL_EVENT_WINDOW_MAXIMIZED:
+              SDL_Log("Window %d maximized", event.window.windowID);
+              break;
+          case SDL_EVENT_WINDOW_RESTORED:
+              SDL_Log("Window %d restored", event.window.windowID);
+              break;
+          case SDL_EVENT_WINDOW_MOUSE_ENTER:
+              SDL_Log("Mouse entered window %d", event.window.windowID);
+              break;
+          case SDL_EVENT_WINDOW_MOUSE_LEAVE:
+              SDL_Log("Mouse left window %d", event.window.windowID);
+              break;
+          case SDL_EVENT_WINDOW_FOCUS_GAINED:
+              SDL_Log("Window %d gained keyboard focus", event.window.windowID);
+              break;
+          case SDL_EVENT_WINDOW_FOCUS_LOST:
+              SDL_Log("Window %d lost keyboard focus", event.window.windowID);
+              break;
+          case SDL_EVENT_WINDOW_CLOSE_REQUESTED:
+              SDL_Log("Window %d closed", event.window.windowID);
+              break;
+          case SDL_EVENT_WINDOW_TAKE_FOCUS:
+              SDL_Log("Window %d is offered a focus", event.window.windowID);
+              break;
+          case SDL_EVENT_WINDOW_HIT_TEST:
+              SDL_Log("Window %d has a special hit test", event.window.windowID);
+              break;
+          case SDL_EVENT_WINDOW_ENTER_FULLSCREEN:
+              SDL_Log("Window %d entered fullscreen mode", event.window.windowID);
+              break;
+          case SDL_EVENT_WINDOW_LEAVE_FULLSCREEN:
+              SDL_Log("Window %d left fullscreen mode", event.window.windowID);
+              break;
+          case SDL_EVENT_WINDOW_OCCLUDED:
+              SDL_Log("Window %d is occluded", event.window.windowID);
+              break;
+          default:
+              SDL_Log("Window %d got unknown event %d", event.window.windowID, event.window.type);
+              break;
+        }
+    }
+  } 
 
   void newGetAudioData(void *userdata, SDL_AudioStream *stream, int additional_amount, int total_amount)
   {
