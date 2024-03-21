@@ -4,7 +4,7 @@
 #include "StarTickRateMonitor.hpp"
 #include "StarRenderer_opengl20.hpp"
 
-#include "SDL2/SDL.h"
+#include "SDL3/SDL.h"
 #include "StarPlatformServices_pc.hpp"
 
 namespace Star {
@@ -150,27 +150,27 @@ Maybe<Key> keyFromSdlKeyCode(SDL_Keycode sym) {
 KeyMod keyModsFromSdlKeyMods(uint16_t mod) {
   KeyMod keyMod = KeyMod::NoMod;
 
-  if (mod & KMOD_LSHIFT)
+  if (mod & SDL_KMOD_LSHIFT)
     keyMod |= KeyMod::LShift;
-  if (mod & KMOD_RSHIFT)
+  if (mod & SDL_KMOD_RSHIFT)
     keyMod |= KeyMod::RShift;
-  if (mod & KMOD_LCTRL)
+  if (mod & SDL_KMOD_LCTRL)
     keyMod |= KeyMod::LCtrl;
-  if (mod & KMOD_RCTRL)
+  if (mod & SDL_KMOD_RCTRL)
     keyMod |= KeyMod::RCtrl;
-  if (mod & KMOD_LALT)
+  if (mod & SDL_KMOD_LALT)
     keyMod |= KeyMod::LAlt;
-  if (mod & KMOD_RALT)
+  if (mod & SDL_KMOD_RALT)
     keyMod |= KeyMod::RAlt;
-  if (mod & KMOD_LGUI)
+  if (mod & SDL_KMOD_LGUI)
     keyMod |= KeyMod::LGui;
-  if (mod & KMOD_RGUI)
+  if (mod & SDL_KMOD_RGUI)
     keyMod |= KeyMod::RGui;
-  if (mod & KMOD_NUM)
+  if (mod & SDL_KMOD_NUM)
     keyMod |= KeyMod::Num;
-  if (mod & KMOD_CAPS)
+  if (mod & SDL_KMOD_CAPS)
     keyMod |= KeyMod::Caps;
-  if (mod & KMOD_MODE)
+  if (mod & SDL_KMOD_MODE)
     keyMod |= KeyMod::AltGr;
 
   return keyMod;
@@ -238,15 +238,18 @@ public:
     if (SDL_InitSubSystem(SDL_INIT_AUDIO))
       throw ApplicationException(strf("Couldn't initialize SDL Sound: %s", SDL_GetError()));
 
-    SDL_JoystickEventState(SDL_ENABLE);
+    Logger::info("Application: using Audio Driver %s", SDL_GetCurrentAudioDriver());
+
+    SDL_SetJoystickEventsEnabled(SDL_TRUE);
 
     m_platformServices = PcPlatformServices::create(applicationPath, platformArguments);
     if (!m_platformServices)
       Logger::info("Application: No platform services available");
 
     Logger::info("Application: Creating SDL Window");
-    m_sdlWindow = SDL_CreateWindow(m_windowTitle.utf8Ptr(), SDL_WINDOWPOS_UNDEFINED, SDL_WINDOWPOS_UNDEFINED,
-        m_windowSize[0], m_windowSize[1], SDL_WINDOW_OPENGL | SDL_WINDOW_RESIZABLE);
+    //m_sdlWindow = SDL_CreateWindow(m_windowTitle.utf8Ptr(), SDL_WINDOWPOS_UNDEFINED, SDL_WINDOWPOS_UNDEFINED,
+        //m_windowSize[0], m_windowSize[1], SDL_WINDOW_OPENGL | SDL_WINDOW_RESIZABLE);
+    m_sdlWindow = SDL_CreateWindow(m_windowTitle.utf8Ptr(), m_windowSize[0], m_windowSize[1], SDL_WINDOW_OPENGL | SDL_WINDOW_RESIZABLE);
     if (!m_sdlWindow)
       throw ApplicationException::format("Application: Could not create SDL window: %s", SDL_GetError());
 
@@ -266,38 +269,31 @@ public:
 
     SDL_StopTextInput();
 
-    SDL_AudioSpec desired = {};
-    desired.freq = 44100;
-    desired.format = AUDIO_S16SYS;
-    desired.samples = 2048;
-    desired.channels = 2;
-    desired.userdata = this;
-    desired.callback = [](void* userdata, Uint8* stream, int len) {
-      ((SdlPlatform*)(userdata))->getAudioData(stream, len);
-    };
+    SDL_AudioSpec desired = { SDL_AUDIO_S16, 2, 44100 };
 
-    SDL_AudioSpec obtained = {};
-    m_audioDeviceID = SDL_OpenAudioDevice(NULL, 0, &desired, &obtained, 0);
-    if (m_audioDeviceID == 0) {
+    void *userdata = this;
+
+    m_audioDeviceID = SDL_OpenAudioDevice(SDL_AUDIO_DEVICE_DEFAULT_OUTPUT, &desired);
+    SDL_AudioStreamCallback callback = [](void *userdata, SDL_AudioStream *stream, int additional_amout, int total_amount) {
+      ((SdlPlatform*)(userdata))->newGetAudioData(userdata, stream, additional_amout, total_amount);
+    };
+    SDL_AudioStream *stream = SDL_OpenAudioDeviceStream(m_audioDeviceID, &desired, callback, userdata);
+    m_audioDeviceID = SDL_GetAudioStreamDevice(stream);
+    if (m_audioDeviceID == 0)
       Logger::error("Application: Could not open audio device, no sound available!");
-      Logger::error("SDL_AudioDeviceID m_audioDeviceID: %u", m_audioDeviceID);
-    } else if (obtained.freq != desired.freq || obtained.channels != desired.channels || obtained.format != desired.format) { 
-      SDL_CloseAudioDevice(m_audioDeviceID);
-      Logger::error("Application: Could not open 44.1khz / 16 bit stereo audio device, no sound available!");
-      Logger::error("SDL_AudioDeviceID m_audioDeviceID: %u", m_audioDeviceID);
-    } else {
-      Logger::info("Application: Opened default audio device with 44.1khz / 16 bit stereo audio, %s sample size buffer", obtained.samples);
-      Logger::info("SDL_AudioDeviceID m_audioDeviceID: %u", m_audioDeviceID);
-    }
-    SDL_DisplayMode actualDisplayMode;
-    if (SDL_GetWindowDisplayMode(m_sdlWindow, &actualDisplayMode) == 0) 
+    else
     {
-        m_windowSize = {(unsigned)actualDisplayMode.w, (unsigned)actualDisplayMode.h};
-        m_windowRate = actualDisplayMode.refresh_rate;
-        Logger::info("Actual display mode: %s, %s, %s", (unsigned)actualDisplayMode.w, (unsigned)actualDisplayMode.h, (unsigned)actualDisplayMode.refresh_rate);
+      Logger::info("Successfully opened audio device : %d", m_audioDeviceID);
+      SDL_ResumeAudioDevice(m_audioDeviceID);
     }
-    else 
-        Logger::error("Couldn't get window display mode!");
+    
+    SDL_DisplayMode actualDisplayMode;
+    if (SDL_GetDesktopDisplayMode(actualDisplayMode.displayID) == NULL) {
+      Logger::error("Application: SDL_GetDesktopDisplayMode failed: %s", SDL_GetError());
+    }
+    m_windowSize = {(unsigned)actualDisplayMode.w, (unsigned)actualDisplayMode.h};
+    m_windowRate = actualDisplayMode.refresh_rate;
+    Logger::info("Actual display mode: %s, %s, %s", (unsigned)actualDisplayMode.w, (unsigned)actualDisplayMode.h, (unsigned)actualDisplayMode.refresh_rate);
 
     m_renderer = make_shared<OpenGl20Renderer>();
     m_renderer->setScreenSize(m_windowSize);
@@ -336,9 +332,9 @@ public:
           m_platformServices->update();
 
         if (m_platformServices->overlayActive())
-          SDL_ShowCursor(1);
+          SDL_ShowCursor();
         else
-          SDL_ShowCursor(m_cursorVisible ? 1 : 0);
+          SDL_HideCursor();
 
         int updatesBehind = max<int>(round(m_updateTicker.ticksBehind()), 1);
         updatesBehind = min<int>(updatesBehind, m_maxFrameSkip + 1);
@@ -428,37 +424,7 @@ private:
 
     void setFullscreenWindow(Vec2U fullScreenResolution) override 
     {
-      if (parent->m_windowMode != WindowMode::Fullscreen || parent->m_windowSize != fullScreenResolution) {
-        SDL_DisplayMode requestedDisplayMode = {SDL_PIXELFORMAT_RGB888, (int)fullScreenResolution[0], (int)fullScreenResolution[1], 0, 0};
-        int currentDisplayIndex = SDL_GetWindowDisplayIndex(parent->m_sdlWindow);
-
-        SDL_DisplayMode targetDisplayMode;
-        if (SDL_GetClosestDisplayMode(currentDisplayIndex, &requestedDisplayMode, &targetDisplayMode) != NULL) {
-          if (SDL_SetWindowDisplayMode(parent->m_sdlWindow, &requestedDisplayMode) == 0) {
-            if (parent->m_windowMode == WindowMode::Fullscreen)
-              SDL_SetWindowFullscreen(parent->m_sdlWindow, 0);
-            else
-              parent->m_windowMode = WindowMode::Fullscreen;
-            SDL_SetWindowFullscreen(parent->m_sdlWindow, SDL_WINDOW_FULLSCREEN);
-          } else {
-            Logger::warn("Failed to set resolution %s, %s", (unsigned)requestedDisplayMode.w, (unsigned)requestedDisplayMode.h);
-          }
-        } else {
-          Logger::warn("Unable to set requested display resolution %s, %s", (int)fullScreenResolution[0], (int)fullScreenResolution[1]);
-        }
-
-        SDL_DisplayMode actualDisplayMode;
-        if (SDL_GetWindowDisplayMode(parent->m_sdlWindow, &actualDisplayMode) == 0) {
-          parent->m_windowSize = {(unsigned)actualDisplayMode.w, (unsigned)actualDisplayMode.h};
-          parent->m_windowRate = actualDisplayMode.refresh_rate;
-
-          // call these manually since no SDL_WindowEvent is triggered when changing between fullscreen resolutions for some reason
-          //parent->m_renderer->setScreenSize(parent->m_windowSize);
-          parent->m_application->windowChanged(parent->m_windowMode, parent->m_windowSize);
-        } else {
-          Logger::error("Couldn't get window display mode!");
-        }
-      }
+      return (Logger::info("TODO: Application: Setting fullscreen window"));
     }
 
     void setNormalWindow(Vec2U windowSize) override {
@@ -488,19 +454,11 @@ private:
 
     void setBorderlessWindow() override {
       if (parent->m_windowMode != WindowMode::Borderless) {
-        SDL_SetWindowFullscreen(parent->m_sdlWindow, SDL_WINDOW_FULLSCREEN_DESKTOP);
+        if (parent->m_windowMode == WindowMode::Fullscreen || parent->m_windowMode == WindowMode::Maximized)
+          SDL_SetWindowFullscreen(parent->m_sdlWindow, 0);
+
+        SDL_SetWindowBordered(parent->m_sdlWindow, SDL_FALSE);
         parent->m_windowMode = WindowMode::Borderless;
-
-        SDL_DisplayMode actualDisplayMode;
-        if (SDL_GetWindowDisplayMode(parent->m_sdlWindow, &actualDisplayMode) == 0) {
-          parent->m_windowSize = {(unsigned)actualDisplayMode.w, (unsigned)actualDisplayMode.h};
-          parent->m_windowRate = actualDisplayMode.refresh_rate;
-
-          parent->m_renderer->setScreenSize(parent->m_windowSize);
-          parent->m_application->windowChanged(parent->m_windowMode, parent->m_windowSize);
-        } else {
-          Logger::error("Couldn't get window display mode!");
-        }
       }
     }
 
@@ -532,13 +490,13 @@ private:
 
     AudioFormat enableAudio() override {
       parent->m_audioEnabled = true;
-      SDL_PauseAudioDevice(parent->m_audioDeviceID, false);
+      SDL_ResumeAudioDevice(parent->m_audioDeviceID);
       return AudioFormat{44100, 2};
     }
 
     void disableAudio() override {
       parent->m_audioEnabled = false;
-      SDL_PauseAudioDevice(parent->m_audioDeviceID, true);
+      SDL_PauseAudioDevice(parent->m_audioDeviceID);
     }
 
     float updateRate() const override {
@@ -586,13 +544,15 @@ private:
     SDL_Event event;
     while (SDL_PollEvent(&event)) {
       Maybe<InputEvent> starEvent;
-      if (event.type == SDL_WINDOWEVENT) {
-        if (event.window.event == SDL_WINDOWEVENT_MAXIMIZED || event.window.event == SDL_WINDOWEVENT_RESTORED) {
+      if (event.type >= SDL_EVENT_WINDOW_FIRST && event.type <= SDL_EVENT_WINDOW_LAST) 
+      {
+        if (event.window.type == SDL_EVENT_WINDOW_MAXIMIZED || event.window.type == SDL_EVENT_WINDOW_RESTORED) 
+        {
           auto windowFlags = SDL_GetWindowFlags(m_sdlWindow);
 
           if (windowFlags & SDL_WINDOW_MAXIMIZED) {
             m_windowMode = WindowMode::Maximized;
-          } else if (windowFlags & SDL_WINDOW_FULLSCREEN || windowFlags & SDL_WINDOW_FULLSCREEN_DESKTOP) {
+          } else if (windowFlags & SDL_WINDOW_FULLSCREEN) {
             if (m_windowMode != WindowMode::Fullscreen && m_windowMode != WindowMode::Borderless)
               m_windowMode = WindowMode::Fullscreen;
           } else {
@@ -602,44 +562,61 @@ private:
           m_application->windowChanged(m_windowMode, m_windowSize);
 
         } 
-        else if (event.window.event == SDL_WINDOWEVENT_RESIZED || event.window.event == SDL_WINDOWEVENT_SIZE_CHANGED) 
+        else if (event.window.type == SDL_EVENT_WINDOW_RESIZED || event.window.type == SDL_EVENT_WINDOW_PIXEL_SIZE_CHANGED) 
         {
           m_windowSize = Vec2U(event.window.data1, event.window.data2);
           m_renderer->setScreenSize(m_windowSize);
           m_application->windowChanged(m_windowMode, m_windowSize);
         }
 
-      } else if (event.type == SDL_KEYDOWN) {
-        if (!event.key.repeat) {
+      } 
+      else if (event.type == SDL_EVENT_KEY_DOWN) 
+      {
+        if (!event.key.repeat) 
+        {
           if (auto key = keyFromSdlKeyCode(event.key.keysym.sym))
             starEvent.set(KeyDownEvent{*key, keyModsFromSdlKeyMods(event.key.keysym.mod)});
         }
 
-      } else if (event.type == SDL_KEYUP) {
+      } 
+      else if (event.type == SDL_EVENT_KEY_UP) 
+      {
         if (auto key = keyFromSdlKeyCode(event.key.keysym.sym))
           starEvent.set(KeyUpEvent{*key});
 
-      } else if (event.type == SDL_TEXTINPUT) {
+      } 
+      else if (event.type == SDL_EVENT_TEXT_INPUT) 
+      {
         starEvent.set(TextInputEvent{String(event.text.text)});
 
-      } else if (event.type == SDL_MOUSEMOTION) {
+      } 
+      else if (event.type == SDL_EVENT_MOUSE_MOTION) 
+      {
         starEvent.set(MouseMoveEvent{
             {event.motion.xrel, -event.motion.yrel}, {event.motion.x, (int)m_windowSize[1] - event.motion.y}});
 
-      } else if (event.type == SDL_MOUSEBUTTONDOWN) {
+      } 
+      else if (event.type == SDL_EVENT_MOUSE_BUTTON_DOWN) 
+      {
         starEvent.set(MouseButtonDownEvent{mouseButtonFromSdlMouseButton(event.button.button),
             {event.button.x, (int)m_windowSize[1] - event.button.y}});
 
-      } else if (event.type == SDL_MOUSEBUTTONUP) {
+      } 
+      else if (event.type == SDL_EVENT_MOUSE_BUTTON_UP) 
+      {
         starEvent.set(MouseButtonUpEvent{mouseButtonFromSdlMouseButton(event.button.button),
             {event.button.x, (int)m_windowSize[1] - event.button.y}});
 
-      } else if (event.type == SDL_MOUSEWHEEL) {
-        int x, y;
+      } 
+      else if (event.type == SDL_EVENT_MOUSE_WHEEL) 
+      {
+        float x, y;
         SDL_GetMouseState(&x, &y);
         starEvent.set(MouseWheelEvent{event.wheel.y < 0 ? MouseWheel::Down : MouseWheel::Up, {x, (int)m_windowSize[1] - y}});
 
-      } else if (event.type == SDL_QUIT) {
+      } 
+      else if (event.type == SDL_EVENT_QUIT) 
+      {
         m_quitRequested = true;
         starEvent.reset();
       }
@@ -647,8 +624,23 @@ private:
       if (starEvent)
         inputEvents.append(starEvent.take());
     }
-
     return inputEvents;
+  }
+
+  void newGetAudioData(void *userdata, SDL_AudioStream *stream, int additional_amount, int total_amount)
+  {
+    _unused(userdata);
+    _unused(total_amount);
+    if (additional_amount > 0) 
+    {
+        Uint8 *data = SDL_stack_alloc(Uint8, additional_amount);
+        if (data) 
+        {
+            getAudioData(data, additional_amount);
+            SDL_PutAudioStreamData(stream, data, additional_amount);
+            SDL_stack_free(data);
+        }
+    }
   }
 
   void getAudioData(Uint8* stream, int len) {
@@ -682,7 +674,7 @@ private:
   TickRateMonitor m_renderTicker = TickRateMonitor(1.0f);
   float m_renderRate = 0.0f;
 
-  SDL_Window* m_sdlWindow = nullptr;
+  SDL_Window *m_sdlWindow = nullptr;
   SDL_GLContext m_sdlGlContext = nullptr;
 
   Vec2U m_windowSize = {800, 600};

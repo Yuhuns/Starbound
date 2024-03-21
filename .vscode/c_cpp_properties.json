@@ -4,7 +4,8 @@
             "name": "Mac",
             "includePath": [
                 "${workspaceFolder}/**",
-                "/opt/homebrew/**"
+                "/opt/homebrew/**",
+                "/usr/local/include/**"
             ],
             "defines": [],
             "compilerPath": "/usr/bin/clang",
@@ -21,7 +22,6 @@
                 "limitSymbolsToIncludedHeaders": true,
                 "databaseFilename": ""
             },
-            "compileCommands": "${workspaceFolder}/build/compile_commands.json"
         },
         {
             "name": "Windows MSVC x86-64",
